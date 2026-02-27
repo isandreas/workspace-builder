@@ -3,13 +3,15 @@
 import WorkspaceCanvas from "@/components/Canvas/WorkspaceCanvas";
 import { FloatingToolbar } from "@/components/FloatingToolbar";
 import { ItemInspector } from "@/components/ItemInspector";
-import { LifestyleZones } from "@/components/LifestyleZones";
+import { RentModal } from "@/components/Modal/RentModal";
 import { ProductShelf } from "@/components/ProductShelf";
 import { RentSummaryBar } from "@/components/RentSummaryBar";
 import { useWorkspaceStore } from "@/hooks/useWorkspaceStore";
+import { useState } from "react";
 
 export default function Home() {
   const store = useWorkspaceStore();
+  const [rentModalOpen, setRentModalOpen] = useState(false);
 
   return (
     <div className="flex h-screen flex-col overflow-hidden bg-white font-sans">
@@ -52,12 +54,6 @@ export default function Home() {
             onEmptySlotClick={store.selectSlot}
             onFilledSlotClick={store.selectSlot}
           />
-
-          {/* Lifestyle Zones — bottom of canvas */}
-          <LifestyleZones
-            activeZone={store.activeZone}
-            onZoneClick={store.setActiveZone}
-          />
         </div>
 
         {/* ── Right: Item Inspector (300px, slides in) ── */}
@@ -80,6 +76,16 @@ export default function Home() {
       {/* ═══════════ BOTTOM: Rent Summary Bar ═══════════ */}
       <RentSummaryBar
         itemCount={store.itemCount}
+        totalPrice={store.totalPrice}
+        duration={store.duration}
+        onRent={() => setRentModalOpen(true)}
+      />
+
+      {/* ═══════════ Rent Modal ═══════════ */}
+      <RentModal
+        open={rentModalOpen}
+        onOpenChange={setRentModalOpen}
+        filledItems={store.filledItems}
         totalPrice={store.totalPrice}
         duration={store.duration}
       />

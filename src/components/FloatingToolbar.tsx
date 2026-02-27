@@ -20,7 +20,6 @@ export function FloatingToolbar({
   onClearCanvas,
   onTemplateClick,
 }: FloatingToolbarProps) {
-  const [showGrid, setShowGrid] = useState(false);
   const [confirmClear, setConfirmClear] = useState(false);
 
   const handleClear = () => {
@@ -45,18 +44,6 @@ export function FloatingToolbar({
       </button>
 
       <Divider />
-
-      {/* Grid toggle */}
-      <button
-        onClick={() => setShowGrid((v) => !v)}
-        className={cn(
-          "cursor-pointer whitespace-nowrap rounded-[7px] px-3 py-1.25 text-[11.5px] font-medium text-ink-muted transition-all duration-180",
-          "hover:bg-surface hover:text-ink",
-          showGrid && "bg-surface text-ink",
-        )}
-      >
-        ⊞ Grid
-      </button>
 
       {/* Undo */}
       <button

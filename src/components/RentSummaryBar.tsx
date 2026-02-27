@@ -8,6 +8,7 @@ export interface RentSummaryBarProps {
   itemCount: number;
   totalPrice: number;
   duration: RentalDuration;
+  onRent?: () => void;
 }
 
 // ── Component ──
@@ -16,6 +17,7 @@ export function RentSummaryBar({
   itemCount,
   totalPrice,
   duration,
+  onRent,
 }: RentSummaryBarProps) {
   return (
     <div className="z-100 flex h-14.5 shrink-0 items-center justify-between border-t border-border bg-white px-6">
@@ -39,10 +41,9 @@ export function RentSummaryBar({
 
       {/* ── Right: CTA ── */}
       <button
-        className="cursor-pointer rounded-[10px] bg-ink px-7 py-3 text-[13.5px] font-medium tracking-[0.01em] text-white shadow-[0_4px_16px_rgba(0,0,0,0.18)] transition-all duration-200 hover:-translate-y-px hover:bg-accent-hover hover:shadow-[0_6px_20px_rgba(0,0,0,0.22)]"
-        onClick={() => {
-          /* TODO: checkout flow */
-        }}
+        className="cursor-pointer rounded-[10px] bg-ink px-7 py-3 text-[13.5px] font-medium tracking-[0.01em] text-white shadow-[0_4px_16px_rgba(0,0,0,0.18)] transition-all duration-200 hover:-translate-y-px hover:bg-accent-hover hover:shadow-[0_6px_20px_rgba(0,0,0,0.22)] disabled:cursor-not-allowed disabled:opacity-40"
+        onClick={onRent}
+        disabled={itemCount === 0}
       >
         Rent My Setup →
       </button>
