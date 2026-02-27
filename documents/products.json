@@ -1,0 +1,550 @@
+{
+  "source": "https://www.monis.rent/locations/bali",
+  "cdn_base": "https://cdn.prod.website-files.com/62ec28c28759bdba5015b899/",
+  "categories": [
+    {
+      "id": "monitors",
+      "label": "Monitors",
+      "emoji": "🖥",
+      "products": [
+        {
+          "id": "24-full-hd-monitor-a24i",
+          "name": "24\" Full HD Office Monitor A24i",
+          "description": "Xiaomi Mi 23.8\" at 100Hz, IPS, 1920×1080, 250 Nits, 99% sRGB, HDMI/DP",
+          "price_per_week": 6,
+          "slug": "/products/24-full-hd-office-monitor-a24i-2",
+          "image_url": "https://cdn.prod.website-files.com/62ec28c28759bdba5015b899/6863ea6c097ce9fb569b8c0c_24_Full_HD_Office_Monitor_A24i_1_7f987306af.jpeg"
+        },
+        {
+          "id": "24-full-hd-monitor-1c",
+          "name": "24\" Full HD Office Monitor 1C",
+          "description": "Xiaomi Mi 23.8\" at 75Hz, 1920×1080, 250 Nits, 99% sRGB, 6ms",
+          "price_per_week": 5,
+          "slug": "/products/full-hd-office-24",
+          "image_url": "https://cdn.prod.website-files.com/62ec28c28759bdba5015b899/6863ec2f5d1b9d7ffe2a5582_24_Full_HD_75_Hz_IPS_Desktop_1_C_Monitor_front_7eeba14881.jpeg"
+        },
+        {
+          "id": "27-full-hd-monitor-mid",
+          "name": "27\" Full HD Office Monitor MiD",
+          "description": "Xiaomi MiD, 75Hz, 1920×1080, 100% sRGB, 300 Nits, 6ms",
+          "price_per_week": 7,
+          "slug": "/products/27-work-monitor-mi-d",
+          "image_url": "https://cdn.prod.website-files.com/62ec28c28759bdba5015b899/6863ec36efc0ee750a3cf582_24_essentail_front_ea36cec7cf.jpeg"
+        },
+        {
+          "id": "27-full-hd-monitor-a27i",
+          "name": "27\" Full HD Office Monitor A27i",
+          "description": "Xiaomi 27\" IPS at 100Hz, 1920×1080, 100% sRGB, ΔE<2, VESA mount",
+          "price_per_week": 8,
+          "slug": "/products/27-work-monitor-a27i",
+          "image_url": "https://cdn.prod.website-files.com/62ec28c28759bdba5015b899/6863ec3d19dead1343bead92_A27i_front_35acc32043.jpeg"
+        },
+        {
+          "id": "27-4k-multimedia-monitor",
+          "name": "27\" 4K Multimedia Monitor",
+          "description": "Redmi 27\", USB-C/HDMI, 4K (3840×2160), 100% sRGB, 95% DCI-P3, HDR, VESA",
+          "price_per_week": 13,
+          "slug": "/products/27-4-k-multimedia-monitor",
+          "image_url": "https://cdn.prod.website-files.com/62ec28c28759bdba5015b899/6863ec4533734dcd2eaea2ea_27_4_K_A27_U_Multitasking_Monitor_1_ce29d15357.jpeg"
+        },
+        {
+          "id": "27-4k-grading-monitor",
+          "name": "27\" 4K+ Grading Monitor",
+          "description": "Xiaomi 27\", USB-C + charging, 4K, 99% DCI-P3 Adobe RGB, PANTONE Validated",
+          "price_per_week": 18,
+          "slug": "/products/4k-grading-monitor-27",
+          "image_url": "https://cdn.prod.website-files.com/62ec28c28759bdba5015b899/6863ec4c66fa18d1b4b37998_27_4_K_60_Hz_IPS_Grading_Monitor_front_01b90d6ac0.jpeg"
+        },
+        {
+          "id": "27-5k-apple-studio-display",
+          "name": "27\" 5K Apple Studio Display",
+          "description": "5K Retina (5120×2880), 600 nits, P3 wide color, 12MP camera, Thunderbolt 3",
+          "price_per_week": 75,
+          "slug": "/products/apple-studio-display",
+          "image_url": "https://cdn.prod.website-files.com/62ec28c28759bdba5015b899/6863ec53811330983bf8ee38_Apple_Studio_Display_6_94c6329a05.jpeg"
+        },
+        {
+          "id": "27-2k-grading-monitor-benq",
+          "name": "27\" 2K+ Grading Monitor",
+          "description": "BenQ 27\" QHD 2K (2560×1440), 99% DCI-P3 Adobe RGB, PANTONE Validated",
+          "price_per_week": 19,
+          "slug": "/products/ben-q-2-k-grading-monitor-27",
+          "image_url": "https://cdn.prod.website-files.com/62ec28c28759bdba5015b899/6863ec5be26ecabb2901acb4_Ben_Q_2_K_Grading_Monitor_27_front_d138954555.jpeg"
+        },
+        {
+          "id": "30-gaming-monitor",
+          "name": "30\" Full HD Gaming Monitor",
+          "description": "Xiaomi 30\" IPS at 200Hz, WFHD (2560×1080) ultrawide, 99% sRGB, 4ms",
+          "price_per_week": 14,
+          "slug": "/products/mi-30-curved-monitor",
+          "image_url": "https://cdn.prod.website-files.com/62ec28c28759bdba5015b899/6863ec63ab6c6ad11305ea12_30_Full_HD_Gaming_Monitor_5_9b321bb7e5.jpeg"
+        },
+        {
+          "id": "34-4k-gaming-monitor",
+          "name": "34\" 4K Gaming Monitor",
+          "description": "Xiaomi 34\" curved at 180Hz, WQHD 3440×1440, DCI-P3 95%, 1ms",
+          "price_per_week": 19,
+          "slug": "/products/34-4-k-curved-monitor-180-hz",
+          "image_url": "https://cdn.prod.website-files.com/62ec28c28759bdba5015b899/6863ec7fda4da79c38060eba_34_4_K_Gaming_Monitor_7_3f6b2ba627.jpeg"
+        },
+        {
+          "id": "34-4k-curved-monitor",
+          "name": "34\" 4K Curved Monitor",
+          "description": "Xiaomi 34\" curved at 144Hz, WQHD 3440×1440, 121% sRGB, 4ms",
+          "price_per_week": 19,
+          "slug": "/products/4-k-ultra-wide-34",
+          "image_url": "https://cdn.prod.website-files.com/62ec28c28759bdba5015b899/6863ec7036de3b9f5b107126_34_4_K_Ultra_Wide_Curved_Monitor_front_3636b63aed.jpeg"
+        },
+        {
+          "id": "32-qhd-ergonomic-monitor-lg",
+          "name": "32\" QHD Ergonomic Monitor",
+          "description": "LG Ergo 32\" QHD (2560×1440) IPS, USB-C 96W, sRGB 99%, HDR10, Ergo stand",
+          "price_per_week": 19,
+          "slug": "/products/32-4-k-ergonomic-monitor",
+          "image_url": "https://cdn.prod.website-files.com/62ec28c28759bdba5015b899/6863ec6a75f9b740888db34f_32_LG_Fine_Art_addtition_1_1c49831c40.jpeg"
+        }
+      ]
+    },
+    {
+      "id": "furniture",
+      "label": "Furniture",
+      "emoji": "🪑",
+      "products": [
+        {
+          "id": "ergonomic-office-chair",
+          "name": "Ergonomic Office Chair",
+          "description": "Mesh back, 4D armrests, adjustable headrest & lumbar, reclining, retractable leg rest",
+          "price_per_week": 6,
+          "slug": "/products/ergonomic-office-chair",
+          "image_url": "https://cdn.prod.website-files.com/62ec28c28759bdba5015b899/6863eca419dead1343bef567_fantech_oca259s_chair_6_b632a0c529.jpeg"
+        },
+        {
+          "id": "electrical-adjustable-desk",
+          "name": "Electrical Adjustable Desk",
+          "description": "Electric height 70–118cm, silent motor, ergonomic sit-stand, 3 sizes available",
+          "price_per_week": 5,
+          "slug": "/products/electrical-adjustable-desk",
+          "image_url": "https://cdn.prod.website-files.com/62ec28c28759bdba5015b899/6863ecb375f9b740888dd0d6_desk_titel_new_3db151d44c.jpeg"
+        },
+        {
+          "id": "mechanical-adjustable-desk",
+          "name": "Mechanical Adjustable Desk",
+          "description": "70–120cm height, no electricity needed, 120×70cm or 160×70cm",
+          "price_per_week": 9,
+          "slug": "/products/adjustable-wooden-desk",
+          "image_url": "https://cdn.prod.website-files.com/62ec28c28759bdba5015b899/6863ecbbe26ecabb29020807_Mechanical_Adjustable_Desk_front_new_a83b8077b0.jpeg"
+        },
+        {
+          "id": "magnetic-whiteboard",
+          "name": "Magnetic Whiteboard",
+          "description": "90×60cm standing, includes magnets, marker and eraser",
+          "price_per_week": 5,
+          "slug": "/products/magnetic-whiteboard",
+          "image_url": "https://cdn.prod.website-files.com/62ec28c28759bdba5015b899/6863ee3d13016126f302acec_Magnatic_Whiteboard_6aa8a86e74.jpeg"
+        },
+        {
+          "id": "standing-whiteboard",
+          "name": "Standing Whiteboard 240×120",
+          "description": "Large 240×120cm standing board with marker and eraser",
+          "price_per_week": 7,
+          "slug": "/products/standing-whiteboard-120x240",
+          "image_url": "https://cdn.prod.website-files.com/62ec28c28759bdba5015b899/6863ee44ab6c6ad11306e389_standing_whiteboard_240x120_4a5a6f2c47.jpeg"
+        }
+      ]
+    },
+    {
+      "id": "computers",
+      "label": "Computers",
+      "emoji": "💻",
+      "products": [
+        {
+          "id": "apple-mac-studio",
+          "name": "Apple Mac Studio",
+          "description": "M1 Max 10-core / M2 Ultra 24-core, 32–64GB RAM, 512GB–1TB SSD",
+          "price_per_week": 49,
+          "slug": "/products/apple-mac-studio",
+          "image_url": "https://cdn.prod.website-files.com/62ec28c28759bdba5015b899/6863ecc24ba9b0f643df7f27_Mac_Studio_M1_6_7488521ebb.jpeg"
+        },
+        {
+          "id": "apple-mac-mini-m2",
+          "name": "Apple Mac Mini M2",
+          "description": "M2 8-core CPU, 10-core GPU, 8/16GB RAM, 256/512GB SSD, Thunderbolt 4",
+          "price_per_week": 28,
+          "slug": "/products/apple-mac-mini-m2-new",
+          "image_url": "https://cdn.prod.website-files.com/62ec28c28759bdba5015b899/6863ecd836de3b9f5b10a775_Apple_Mac_Mini_M2_6_1d4fce6808.jpeg"
+        },
+        {
+          "id": "apple-mac-mini-m4",
+          "name": "Apple Mac Mini M4",
+          "description": "M4 10-core CPU, 10-core GPU, 16GB RAM, 256GB SSD, Thunderbolt 4",
+          "price_per_week": 32,
+          "slug": "/products/apple-mac-mini-m4",
+          "image_url": "https://cdn.prod.website-files.com/62ec28c28759bdba5015b899/6863ecea75f9b740888df13d_Mac_mini_M4_front_b152d10743.jpeg"
+        },
+        {
+          "id": "windows-laptop-15",
+          "name": "15\" Office Windows Laptop",
+          "description": "Intel Core i3 11th Gen, 8GB RAM, 256GB SSD, Windows 10, 30+ hr battery",
+          "price_per_week": 16,
+          "slug": "/products/office-windows-laptop",
+          "image_url": "https://cdn.prod.website-files.com/62ec28c28759bdba5015b899/6863ecfaab6c6ad113064659_15_Office_Windows_Laptop_1_c1221bb234.jpeg"
+        }
+      ]
+    },
+    {
+      "id": "peripherals",
+      "label": "Keyboard, Mouse & Accessories",
+      "emoji": "⌨️",
+      "products": [
+        {
+          "id": "logitech-mx-keyboard",
+          "name": "Logitech MX Keyboard",
+          "description": "10m wireless, Easy-Switch for 3 devices, all OS, 5-month battery",
+          "price_per_week": 7,
+          "slug": "/products/logitech-mx-keyboard",
+          "image_url": "https://cdn.prod.website-files.com/62ec28c28759bdba5015b899/6863ed84b43cca7090fc06ad_Logitech_MX_keys_1_9977480ae1.jpeg"
+        },
+        {
+          "id": "apple-magic-keyboard",
+          "name": "Apple Magic Keyboard",
+          "description": "Touch ID, numeric keypad, wireless, Lightning charging",
+          "price_per_week": 8,
+          "slug": "/products/apple-magic-keyboard",
+          "image_url": "https://cdn.prod.website-files.com/62ec28c28759bdba5015b899/6863ed8c36de3b9f5b110424_magic_keyboard_with_touch_id_1_7124075f1d.jpeg"
+        },
+        {
+          "id": "logitech-m331-mouse",
+          "name": "Logitech M331 Silent Mouse",
+          "description": "RedDot winner, Logi Bolt 2.4GHz, all OS compatible",
+          "price_per_week": 1,
+          "slug": "/products/logitech-mx-mouse",
+          "image_url": "https://cdn.prod.website-files.com/62ec28c28759bdba5015b899/6863ed9475f9b740888e61a6_mouse_side_M33_030834aea0.jpeg"
+        },
+        {
+          "id": "logitech-mx-master-s3",
+          "name": "Logitech MX Master Mouse S3",
+          "description": "8,000 DPI Darkfield, 70-day battery, Win/Mac, ergonomic",
+          "price_per_week": 6,
+          "slug": "/products/logitech-mx-master-mouse-s3",
+          "image_url": "https://cdn.prod.website-files.com/62ec28c28759bdba5015b899/6863ed9eefc0ee750a3e33ab_Logitech_S3_6_4cf1e523b8.jpeg"
+        },
+        {
+          "id": "apple-magic-mouse",
+          "name": "Apple Magic Mouse",
+          "description": "Multi-touch surface, wireless, automatic pairing",
+          "price_per_week": 6,
+          "slug": "/products/apple-magic-mouse",
+          "image_url": "https://cdn.prod.website-files.com/62ec28c28759bdba5015b899/6863eda5ba5217f622e2fb20_Apple_Magic_Mouse_4_022f966524.jpeg"
+        },
+        {
+          "id": "apple-magic-trackpad",
+          "name": "Apple Magic Trackpad",
+          "description": "Multi-Touch, Bluetooth, rechargeable, Lightning included",
+          "price_per_week": 7,
+          "slug": "/products/apple-magic-trackpad",
+          "image_url": "https://cdn.prod.website-files.com/62ec28c28759bdba5015b899/6863edade26ecabb2902e8f7_apple_magic_trackpad_1_5430d919cc.jpeg"
+        },
+        {
+          "id": "6-in-1-converter-hub",
+          "name": "6-in-1 Converter Hub",
+          "description": "USB-C, USB 3.0, 4K HDMI, SD card — all-in-one",
+          "price_per_week": 2,
+          "slug": "/products/6-in-1-converter-hub",
+          "image_url": "https://cdn.prod.website-files.com/62ec28c28759bdba5015b899/6863edb4ff34c912c07584fa_mac_dongle_product_photo_0316bc4b50.jpeg"
+        },
+        {
+          "id": "ergonomic-laptop-stand",
+          "name": "Ergonomic Laptop Stand",
+          "description": "Fits 10\"–17\" laptops, raises and angles for comfort",
+          "price_per_week": 2,
+          "slug": "/products/ergonomic-laptop-stand",
+          "image_url": "https://cdn.prod.website-files.com/62ec28c28759bdba5015b899/6863ee4df1e76aede9741acb_Laptop_stand_back_new2_91df29c3c8.jpeg"
+        },
+        {
+          "id": "adjustable-monitor-stand",
+          "name": "Adjustable Monitor Stand",
+          "description": "11–18cm height, 15kg load, ergonomic with storage",
+          "price_per_week": 2,
+          "slug": "/products/adjustable-monitor-stand",
+          "image_url": "https://cdn.prod.website-files.com/62ec28c28759bdba5015b899/6863ed4775f9b740888e3154_Adjustable_Monitor_Stand_4_e6ae3a1d06.jpeg"
+        },
+        {
+          "id": "monitor-light-bar",
+          "name": "Monitor Light Bar",
+          "description": "Mijia dimmable, 2700–6500K, Ra95, magnetic rotation",
+          "price_per_week": 5,
+          "slug": "/products/metal-monitor-light-bar",
+          "image_url": "https://cdn.prod.website-files.com/62ec28c28759bdba5015b899/6863ed55ff34c912c07565be_Monitor_Light_Bar_1_8e97972171.jpeg"
+        },
+        {
+          "id": "wifi-range-extender",
+          "name": "WiFi Range Extender",
+          "description": "1200Mbps, dual-band 2.5GHz/5GHz, ethernet port",
+          "price_per_week": 3,
+          "slug": "/products/wi-fi-range-extender",
+          "image_url": "https://cdn.prod.website-files.com/62ec28c28759bdba5015b899/6863edd2da4da79c3806e5fe_Wifi_Range_Extender_AC_1200_6_0fe8118acf.jpeg"
+        },
+        {
+          "id": "wifi-6-router",
+          "name": "Dual-Band Wi-Fi 6 Router",
+          "description": "TP-Link AX5400, 200+ devices, 4x LAN, USB 3.0, Qualcomm 64-bit",
+          "price_per_week": 10,
+          "slug": "/products/wi-fi-6-router-5-g",
+          "image_url": "https://cdn.prod.website-files.com/62ec28c28759bdba5015b899/6863ede219dead1343bf7d5d_Archer_AX_72_AX_5400_Dual_Band_Gigabit_Wi_Fi_6_Router_4_69792f5825.jpeg"
+        },
+        {
+          "id": "smart-power-strip-6",
+          "name": "Smart Power Strip 6",
+          "description": "EU/US/AU plugs, 3x USB, 2m length — universal travel companion",
+          "price_per_week": 2,
+          "slug": "/products/smart-power-strip-6",
+          "image_url": "https://cdn.prod.website-files.com/62ec28c28759bdba5015b899/6863ee9305dda5916ca57c4d_Xiaomi_MI_Smart_Power_Strip_Plug_white_4b97124ba0.jpeg"
+        },
+        {
+          "id": "portable-tv-stand",
+          "name": "Portable TV Stand",
+          "description": "32–90\" screens, 70kg max, height adjustable, Eiffel-style, wheels",
+          "price_per_week": 4,
+          "slug": "/products/portable-tv-stand",
+          "image_url": "https://cdn.prod.website-files.com/62ec28c28759bdba5015b899/6863ee64efc0ee750a3ee17f_Oximus_TC_6100_2_5b3b7d0822.jpeg"
+        }
+      ]
+    },
+    {
+      "id": "gaming",
+      "label": "Gaming",
+      "emoji": "🎮",
+      "products": [
+        {
+          "id": "nintendo-switch-2",
+          "name": "Nintendo Switch 2",
+          "description": "7\" OLED, Joy-Con, Mario Kart World, TV/handheld, 256GB",
+          "price_per_week": 28,
+          "slug": "/products/nintendo-switch-2",
+          "image_url": "https://cdn.prod.website-files.com/62ec28c28759bdba5015b899/698584910f908e448c6bc28c_Nintendo_Switch_2_3_207ed0a9cd.jpeg"
+        },
+        {
+          "id": "sony-playstation-5",
+          "name": "Sony PlayStation®5",
+          "description": "Up to 8K, 4K/120Hz, 1TB SSD, DualSense, haptic feedback",
+          "price_per_week": 28,
+          "slug": "/products/play-station-5",
+          "image_url": "https://cdn.prod.website-files.com/62ec28c28759bdba5015b899/6863ed091c4df37791e5fef5_Monis_PS_5_Titel_Photo_e3d9eb0af1.jpeg"
+        },
+        {
+          "id": "sony-psvr2",
+          "name": "Sony PSVR2 VR Headset",
+          "description": "OLED 4K HDR, eye tracking, 120Hz, 4 cameras, Bluetooth 5.1",
+          "price_per_week": 27,
+          "slug": "/products/sony-psvr-2-vr-headset",
+          "image_url": "https://cdn.prod.website-files.com/62ec28c28759bdba5015b899/6863ee1705dda5916ca54630_Sony_PSVR_2_VR_Headset_1_2662290f33.jpeg"
+        },
+        {
+          "id": "smart-tv-55",
+          "name": "55\" Smart TV 4K",
+          "description": "4K UHD, HDR, Dolby Digital+, Voice control, Wi-Fi, Bluetooth 5.2",
+          "price_per_week": 19,
+          "slug": "/products/smart-tv-4-k-55",
+          "image_url": "https://cdn.prod.website-files.com/62ec28c28759bdba5015b899/6863edf15d1b9d7ffe2b5789_55_4_K_TV_5_6d395b4acc.jpeg"
+        },
+        {
+          "id": "smart-tv-65",
+          "name": "65\" Smart TV 4K",
+          "description": "4K UHD, HDR, Wi-Fi 5, Bluetooth 5.2, VESA mount, slim",
+          "price_per_week": 29,
+          "slug": "/products/smart-tv-4-k-65",
+          "image_url": "https://cdn.prod.website-files.com/62ec28c28759bdba5015b899/6863edfa66fa18d1b4b40b23_smart_tv_4k_65_1_7f45a982ed.jpeg"
+        },
+        {
+          "id": "marshall-woburn-3",
+          "name": "Marshall Woburn III Bluetooth",
+          "description": "Bluetooth 5.0, 110W, dual 5.25\" subwoofers, analog controls",
+          "price_per_week": 16,
+          "slug": "/products/marshall-woburn-ii-bluetooth",
+          "image_url": "https://cdn.prod.website-files.com/62ec28c28759bdba5015b899/6863ed5cda4da79c38068917_marshall_woburn_2_1_227171e0f8.jpeg"
+        },
+        {
+          "id": "switch-2-controller-pack",
+          "name": "Switch 2 Controller Pack",
+          "description": "2x Joy-Con pairs, 2x grips, 1x quad charging stand",
+          "price_per_week": 12,
+          "slug": "/products/switch-2-controller-pack",
+          "image_url": "https://cdn.prod.website-files.com/62ec28c28759bdba5015b899/6863ee5c5d1b9d7ffe2b90ee_Nintendo_Switch_2_extra_controller_1_6508ccd5e2.jpeg"
+        },
+        {
+          "id": "ps5-wireless-controller",
+          "name": "PS5 Wireless Controller",
+          "description": "DualSense™, haptic feedback, adaptive triggers, built-in mic",
+          "price_per_week": 6,
+          "slug": "/products/ps-5-wireless-controller",
+          "image_url": "https://cdn.prod.website-files.com/62ec28c28759bdba5015b899/69893c987a282a65befc8b55_Sony_charging_station_4_d0825bba0c.jpg"
+        }
+      ]
+    },
+    {
+      "id": "audio-video",
+      "label": "Audio & Video",
+      "emoji": "🎙",
+      "products": [
+        {
+          "id": "logitech-4k-webcam",
+          "name": "Logitech 4K Webcam Brio",
+          "description": "5x HD zoom, 4K/60fps, noise-cancel mic, adjustable FOV, tripod",
+          "price_per_week": 6,
+          "slug": "/products/logitech-4-k-webcam",
+          "image_url": "https://cdn.prod.website-files.com/62ec28c28759bdba5015b899/6863edbc0e38a5a59864baf8_Logitech_Brio_4_K_Webcam_6_d7ea7e69b0.jpeg"
+        },
+        {
+          "id": "shure-mv7-podcast-kit",
+          "name": "Podcast Microphone Kit",
+          "description": "Shure MV7/MV7+, XLR/USB, 3.5mm monitor out, dynamic sound",
+          "price_per_week": 12,
+          "slug": "/products/podcast-microphone-kit",
+          "image_url": "https://cdn.prod.website-files.com/62ec28c28759bdba5015b899/6863edc3efc0ee750a3e4cd1_Shure_MV_7_Podcast_Microphone_Kit_1_fefd9453fb.jpeg"
+        },
+        {
+          "id": "soundbar-dolby-atmos",
+          "name": "Soundbar Dolby Atmos",
+          "description": "330W, 3.1.2ch, wireless sub, Q-Symphony, HDMI ARC, Wi-Fi",
+          "price_per_week": 10,
+          "slug": "/products/soundbar-dolby-atmos",
+          "image_url": "https://cdn.prod.website-files.com/62ec28c28759bdba5015b899/6863ee0905dda5916ca54205_Soundbar_Dolby_Atmos_9a749dc791.jpeg"
+        },
+        {
+          "id": "wanbo-t6-projector",
+          "name": "Wanbo T6 Projector",
+          "description": "Full HD, 550 ANSI, 120\" max, Android, Wi-Fi, HDMI/USB",
+          "price_per_week": 13,
+          "slug": "/products/wanbo-t6-projector",
+          "image_url": "https://cdn.prod.website-files.com/62ec28c28759bdba5015b899/6863ee27ba5217f622e33b04_Projector_Wanbo_T6_Max_1_aa4529e8fd.jpeg"
+        },
+        {
+          "id": "xlr-to-3-5mm-cable",
+          "name": "XLR Female to 3.5mm Cable",
+          "description": "Canare L-2T2S, 2m, gold-plated, Japan standard",
+          "price_per_week": 2,
+          "slug": "/products/xlr-female-to-3-5mm-cable",
+          "image_url": "https://cdn.prod.website-files.com/62ec28c28759bdba5015b899/6863eec9e26ecabb2903914d_XLR_to_3_5mm_Cable_Photo_1_37b141dafc.jpeg"
+        }
+      ]
+    },
+    {
+      "id": "fitness",
+      "label": "Health & Fitness",
+      "emoji": "🏃",
+      "products": [
+        {
+          "id": "walking-pad-r2-pro",
+          "name": "Foldable Walking Pad R2 Pro",
+          "description": "0.5–12 km/h, Bluetooth, remote control, PC display, 918W DC motor",
+          "price_per_week": 24,
+          "slug": "/products/foldable-walk-pad",
+          "image_url": "https://cdn.prod.website-files.com/62ec28c28759bdba5015b899/6863ed642a965324694a298a_Kingsmith_R2_Pro_R_2_Pro_1_30df9226bf.jpeg"
+        },
+        {
+          "id": "spinning-bike",
+          "name": "Home Spinning Bike",
+          "description": "Yesoul S3, magnetic resistance, Bluetooth, 120kg max",
+          "price_per_week": 22,
+          "slug": "/products/home-spinning-bike-yesoul-S3",
+          "image_url": "https://cdn.prod.website-files.com/62ec28c28759bdba5015b899/6863ed6b4ba9b0f643dfc903_Home_Spinning_Bike_4_45de07b098.jpeg"
+        },
+        {
+          "id": "dumbbell-set-50kg",
+          "name": "Adjustable Dumbbell Weight Set",
+          "description": "Up to 50kg, rubber grips, carrying case",
+          "price_per_week": 6,
+          "slug": "/products/adjustable-dumbbell-weight-set",
+          "image_url": "https://cdn.prod.website-files.com/62ec28c28759bdba5015b899/6863ed732a965324694a346d_Dumbbell_Barbell_50kg_Set_3_731d6080d4.jpeg"
+        },
+        {
+          "id": "massage-gun",
+          "name": "Massage Gun",
+          "description": "Xiaomi, 3 speeds, 5 heads, ≤45dB, 5h battery, Type-C",
+          "price_per_week": 6,
+          "slug": "/products/massage-gun",
+          "image_url": "https://cdn.prod.website-files.com/62ec28c28759bdba5015b899/6863ed7c4ba9b0f643dfda96_Massage_Gun_2_a8d7d7bda8.jpeg"
+        },
+        {
+          "id": "treadmill",
+          "name": "Treadmill",
+          "description": "1–16 km/h, 100kg max, 12 programs, LCD, folding design",
+          "price_per_week": 20,
+          "slug": "/products/treadmill",
+          "image_url": "https://cdn.prod.website-files.com/62ec28c28759bdba5015b899/6863ee2ee26ecabb2903465e_Treadmill_2_7379507162.jpeg"
+        }
+      ]
+    },
+    {
+      "id": "appliances",
+      "label": "Home Appliances",
+      "emoji": "🏠",
+      "products": [
+        {
+          "id": "starlink-kit",
+          "name": "Starlink Kit (incl. plan)",
+          "description": "Wi-Fi 6 dual-band, up to 220 Mbps, 20–40ms, IP65, plug-and-go",
+          "price_per_week": 59,
+          "slug": "/products/starlink-kit-incl-plan",
+          "image_url": "https://cdn.prod.website-files.com/62ec28c28759bdba5015b899/6863ed1f2a9653246949e174_Starlink_V4_Gen_3_7_41ef714dbb.jpeg"
+        },
+        {
+          "id": "dolce-gusto-coffee",
+          "name": "Dolce Gusto Coffee Machine",
+          "description": "15-bar pump, 0.8L, 1500W, hot & cold beverages",
+          "price_per_week": 8,
+          "slug": "/products/capsule-coffee-machine",
+          "image_url": "https://cdn.prod.website-files.com/62ec28c28759bdba5015b899/6863ed27efc0ee750a3dccc5_Dolce_Gusto_Type_9781_5_dd90ffc8b2.jpeg"
+        },
+        {
+          "id": "nespresso-coffee",
+          "name": "Nespresso Capsule Machine",
+          "description": "19-bar, 0.7L tank, 1260W, 25s heat-up, auto shut-off",
+          "price_per_week": 8,
+          "slug": "/products/nespresso-inissia",
+          "image_url": "https://cdn.prod.website-files.com/62ec28c28759bdba5015b899/6863ed3e2a965324694a03db_Nespresso_Inissia_M105_2_8f9255da68.jpeg"
+        },
+        {
+          "id": "smart-tv-43",
+          "name": "43\" Smart TV 4K",
+          "description": "4K UHD, HDR10+, Alexa/Google/Bixby, Wi-Fi, BT, 3×HDMI",
+          "price_per_week": 12,
+          "slug": "/products/43-smart-tv-4-k",
+          "image_url": "https://cdn.prod.website-files.com/62ec28c28759bdba5015b899/6863eddab43cca7090fc2ff4_Smart_TV_4_K_43_1_8c5b8dbc8b.jpeg"
+        },
+        {
+          "id": "smart-tv-50",
+          "name": "50\" Smart TV 4K",
+          "description": "4K UHD, HDR, Dolby Digital+, Voice control, Wi-Fi 5, Bluetooth 5.2",
+          "price_per_week": 15,
+          "slug": "/products/smart-tv-4-k-50-grom-rent",
+          "image_url": "https://cdn.prod.website-files.com/62ec28c28759bdba5015b899/6863edea05dda5916ca537a1_Smart_TV_4_K_50_1_9de8d7fa6b.jpeg"
+        },
+        {
+          "id": "table-fan",
+          "name": "Table Fan",
+          "description": "20\", 70W, oscillation, adjustable height, multiple speeds",
+          "price_per_week": 4,
+          "slug": "/products/table-fan",
+          "image_url": "https://cdn.prod.website-files.com/62ec28c28759bdba5015b899/6863ee7ce4297cb1b12043e1_Kris_Table_Fan_4_fba4785b6b.jpeg"
+        },
+        {
+          "id": "mini-bar-fridge",
+          "name": "Mini Bar Fridge",
+          "description": "46L, 0–8°C, GEA GMB 50, R600a, analog thermostat, door lock",
+          "price_per_week": 4,
+          "slug": "/products/mini-bar-fridge",
+          "image_url": "https://cdn.prod.website-files.com/62ec28c28759bdba5015b899/6863ef3205dda5916ca5e558_Mini_Bar_1_1305a9b18c.jpeg"
+        },
+        {
+          "id": "3-in-1-blender",
+          "name": "3-in-1 Blender",
+          "description": "KLAZ, 1.5L, 500W, blend / grind / chop in one device",
+          "price_per_week": 3,
+          "slug": "/products/3-in-1-blender",
+          "image_url": "https://cdn.prod.website-files.com/62ec28c28759bdba5015b899/6863ee3566fa18d1b4b4314e_KLAZ_3_in_1_Blender_1_e4ed6edf96.jpeg"
+        }
+      ]
+    }
+  ]
+}
