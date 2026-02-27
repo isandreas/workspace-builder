@@ -95,6 +95,56 @@ export const SLOTS: SlotDef[] = [
   },
 ];
 
+// ── Hotspot definitions ──
+
+interface HotspotDef {
+  slotId: SlotId;
+  label: string;
+  /** Percentage-based position within the 640×400 scene container */
+  position: { top?: string; bottom?: string; left?: string; right?: string };
+  /** Stagger delay for the float animation (seconds) */
+  animDelay: number;
+}
+
+const HOTSPOTS: HotspotDef[] = [
+  {
+    slotId: "monitor-left",
+    label: "Add Monitor!",
+    position: { top: "10%", left: "7%" },
+    animDelay: 0,
+  },
+  {
+    slotId: "monitor-center",
+    label: "Add Monitor!",
+    position: { top: "5%", left: "42%" },
+    animDelay: 0.4,
+  },
+  {
+    slotId: "monitor-right",
+    label: "Add Monitor!",
+    position: { top: "10%", right: "7%" },
+    animDelay: 0.8,
+  },
+  {
+    slotId: "lamp",
+    label: "Add Lamp",
+    position: { top: "16%", right: "3%" },
+    animDelay: 0.6,
+  },
+  {
+    slotId: "plant-floor",
+    label: "Add Plant",
+    position: { bottom: "28%", left: "5%" },
+    animDelay: 1.0,
+  },
+  {
+    slotId: "chair",
+    label: "Place a Chair",
+    position: { bottom: "18%", left: "44%" },
+    animDelay: 1.2,
+  },
+];
+
 // ── Animation Variants ──
 
 const itemDrop = {
@@ -449,6 +499,37 @@ function SlotVisual({ slotId }: { slotId: SlotId }) {
   }
 }
 
+// ── Contextual Hotspot Button ──
+
+function Hotspot({ def, onClick }: { def: HotspotDef; onClick: () => void }) {
+  return (
+    <motion.button
+      className="absolute z-40 flex cursor-pointer items-center gap-[3px] whitespace-nowrap rounded-full border bg-white px-[12px] py-[5px] text-[10.5px] font-medium tracking-[0.01em] transition-all duration-[180ms] hover:scale-[1.04] hover:shadow-md active:scale-[0.97]"
+      style={{
+        ...def.position,
+        borderColor: "#C27A5C",
+        color: "#B5694D",
+        boxShadow:
+          "0 1px 4px rgba(194,122,92,0.12), 0 4px 16px rgba(194,122,92,0.06)",
+        animation: `hotspotFloat 2.8s ease-in-out ${def.animDelay}s infinite`,
+      }}
+      initial={{ opacity: 0, y: 6 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: 6, transition: { duration: 0.2 } }}
+      transition={{
+        delay: 0.5 + def.animDelay,
+        duration: 0.4,
+        ease: "easeOut",
+      }}
+      onClick={onClick}
+      aria-label={def.label}
+    >
+      <span className="text-[11px] opacity-60">+</span>
+      <span>{def.label}</span>
+    </motion.button>
+  );
+}
+
 // ── Empty slot placeholder ──
 
 function EmptySlotPlaceholder({
@@ -581,6 +662,13 @@ export default function WorkspaceCanvas({
 
   return (
     <div className="relative flex flex-1 flex-col overflow-hidden bg-off-white">
+      {/* ── Hotspot float keyframes (injected once) ── */}
+      <style>{`
+        @keyframes hotspotFloat {
+          0%, 100% { transform: translateY(0px); }
+          50% { transform: translateY(-4px); }
+        }
+      `}</style>
       {/* ── Dot grid background ── */}
       <div
         className="pointer-events-none absolute inset-0 opacity-50"
@@ -603,6 +691,20 @@ export default function WorkspaceCanvas({
       {/* ── Scene ── */}
       <div className="relative z-[1] flex flex-1 items-center justify-center px-5 pb-5 pt-16">
         <div className="relative" style={{ width: 640, height: 400 }}>
+          {/* ── Contextual Hotspot Buttons ── */}
+          <AnimatePresence>
+            {HOTSPOTS.map(
+              (hs) =>
+                !(hs.slotId in filledSlots) && (
+                  <Hotspot
+                    key={`hs-${hs.slotId}`}
+                    def={hs}
+                    onClick={() => onEmptySlotClick?.(hs.slotId)}
+                  />
+                ),
+            )}
+          </AnimatePresence>
+
           {/* ── Oval Platform ── */}
           <div
             className="absolute bottom-[10px] left-1/2 -translate-x-1/2"
