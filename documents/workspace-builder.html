@@ -1,0 +1,1405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Workspace Builder</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --white: #FFFFFF;
+    --off-white: #F9F9F9;
+    --surface: #F4F4F2;
+    --border: #E8E8E5;
+    --border-strong: #D4D4D0;
+    --ink: #111111;
+    --ink-secondary: #555550;
+    --ink-muted: #9A9A94;
+    --accent: #111111;
+    --accent-hover: #333333;
+    --highlight: #E8E4DC;
+    --active-line: #111111;
+    --shadow-soft: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04);
+    --shadow-mid: 0 2px 8px rgba(0,0,0,0.08), 0 8px 32px rgba(0,0,0,0.06);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Outfit', sans-serif;
+    background: var(--white);
+    color: var(--ink);
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ── TOP NAV ── */
+  .topbar {
+    height: 54px;
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+    flex-shrink: 0;
+    z-index: 100;
+  }
+
+  .logo-area {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+  }
+  .logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--ink);
+    letter-spacing: 0.01em;
+  }
+  .logo-divider {
+    width: 1px;
+    height: 14px;
+    background: var(--border-strong);
+    margin: 0 2px;
+    align-self: center;
+  }
+  .logo-sub {
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--ink-muted);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .topbar-center {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    background: var(--surface);
+    border-radius: 24px;
+    padding: 4px 6px;
+  }
+  .nav-pill {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--ink-muted);
+    padding: 5px 14px;
+    border-radius: 18px;
+    cursor: pointer;
+    transition: all 0.18s;
+    border: none;
+    background: transparent;
+  }
+  .nav-pill.active {
+    background: var(--white);
+    color: var(--ink);
+    box-shadow: var(--shadow-soft);
+  }
+
+  .topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .btn-ghost {
+    font-family: 'Outfit', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    background: transparent;
+    border: 1px solid var(--border-strong);
+    color: var(--ink-secondary);
+    padding: 6px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.18s;
+  }
+  .btn-ghost:hover { border-color: var(--ink); color: var(--ink); }
+  .btn-save {
+    font-family: 'Outfit', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    background: var(--ink);
+    border: 1px solid var(--ink);
+    color: var(--white);
+    padding: 6px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.18s;
+  }
+  .btn-save:hover { background: var(--accent-hover); }
+
+  /* ── MAIN LAYOUT ── */
+  .main {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+  }
+
+  /* ── LEFT SHELF ── */
+  .shelf {
+    width: 252px;
+    background: var(--white);
+    border-right: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    overflow: hidden;
+  }
+
+  .shelf-header {
+    padding: 18px 18px 14px;
+    border-bottom: 1px solid var(--border);
+  }
+  .shelf-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--ink);
+    letter-spacing: 0.01em;
+  }
+  .shelf-sub {
+    font-size: 11px;
+    font-weight: 300;
+    color: var(--ink-muted);
+    margin-top: 3px;
+    letter-spacing: 0.02em;
+  }
+
+  .search-bar {
+    margin: 12px 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 7px 12px;
+  }
+  .search-icon { font-size: 12px; opacity: 0.4; }
+  .search-input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    font-family: 'Outfit', sans-serif;
+    font-size: 12px;
+    color: var(--ink);
+    outline: none;
+  }
+  .search-input::placeholder { color: var(--ink-muted); }
+
+  .category-tabs {
+    display: flex;
+    gap: 0;
+    padding: 0 14px;
+    border-bottom: 1px solid var(--border);
+    overflow-x: auto;
+  }
+  .category-tabs::-webkit-scrollbar { display: none; }
+  .cat-tab {
+    font-size: 11.5px;
+    font-weight: 500;
+    color: var(--ink-muted);
+    padding: 8px 9px;
+    cursor: pointer;
+    border-bottom: 1.5px solid transparent;
+    white-space: nowrap;
+    transition: all 0.18s;
+    letter-spacing: 0.01em;
+  }
+  .cat-tab.active {
+    color: var(--ink);
+    border-bottom-color: var(--ink);
+  }
+
+  .shelf-items {
+    flex: 1;
+    overflow-y: auto;
+    padding: 12px 14px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    align-content: start;
+  }
+  .shelf-items::-webkit-scrollbar { width: 3px; }
+  .shelf-items::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+  .item-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 12px 8px 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.18s;
+    position: relative;
+  }
+  .item-card:hover {
+    border-color: var(--ink);
+    box-shadow: var(--shadow-soft);
+    transform: translateY(-1px);
+  }
+  .item-card.selected {
+    border-color: var(--ink);
+    background: var(--off-white);
+    box-shadow: 0 0 0 3px rgba(17,17,17,0.07);
+  }
+  .item-emoji {
+    font-size: 26px;
+    display: block;
+    margin-bottom: 6px;
+  }
+  .item-name {
+    font-size: 10.5px;
+    font-weight: 500;
+    color: var(--ink);
+    line-height: 1.3;
+    display: block;
+  }
+  .item-price {
+    font-size: 10px;
+    color: var(--ink-muted);
+    margin-top: 3px;
+    font-weight: 300;
+  }
+  .item-add-btn {
+    position: absolute;
+    top: 7px;
+    right: 7px;
+    width: 18px;
+    height: 18px;
+    background: var(--ink);
+    color: white;
+    border-radius: 50%;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.18s;
+    font-weight: 400;
+    line-height: 1;
+  }
+  .item-card:hover .item-add-btn { opacity: 1; }
+
+  .shelf-footer {
+    padding: 10px 18px;
+    border-top: 1px solid var(--border);
+    background: var(--surface);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    color: var(--ink-muted);
+    font-weight: 300;
+  }
+
+  /* ── CENTER CANVAS ── */
+  .canvas-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: var(--off-white);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Subtle dot grid background */
+  .canvas-area::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, #D4D4D0 1px, transparent 1px);
+    background-size: 24px 24px;
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  /* Very subtle light radial glow at center */
+  .canvas-area::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 55%, rgba(255,255,255,0.9) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .canvas-toolbar {
+    position: absolute;
+    top: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 2px;
+    z-index: 20;
+    background: var(--white);
+    border-radius: 10px;
+    padding: 4px;
+    box-shadow: var(--shadow-mid);
+    border: 1px solid var(--border);
+  }
+  .toolbar-btn {
+    font-size: 11.5px;
+    font-weight: 500;
+    color: var(--ink-muted);
+    padding: 5px 12px;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: all 0.18s;
+    border: none;
+    background: transparent;
+    white-space: nowrap;
+  }
+  .toolbar-btn:hover { background: var(--surface); color: var(--ink); }
+  .toolbar-btn.active { background: var(--ink); color: white; }
+  .toolbar-divider {
+    width: 1px;
+    background: var(--border);
+    margin: 4px 2px;
+  }
+
+  /* 3D DIORAMA SCENE */
+  .scene-wrapper {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 64px 20px 20px;
+    z-index: 1;
+  }
+
+  .scene {
+    position: relative;
+    width: 640px;
+    height: 400px;
+  }
+
+  /* Oval platform — clean white marble */
+  .platform {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 580px;
+    height: 130px;
+    background: linear-gradient(160deg, #FFFFFF 0%, #F0EFEB 40%, #E6E4DE 100%);
+    border-radius: 50%;
+    box-shadow:
+      0 24px 60px rgba(0,0,0,0.10),
+      0 8px 20px rgba(0,0,0,0.06),
+      inset 0 1px 0 rgba(255,255,255,0.9);
+    border: 1px solid rgba(0,0,0,0.05);
+  }
+
+  /* Desk */
+  .desk-container {
+    position: absolute;
+    bottom: 88px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 430px;
+  }
+
+  /* Desk surface */
+  .desk-top {
+    width: 430px;
+    height: 52px;
+    background: linear-gradient(180deg, #F8F5F0 0%, #EDE8E0 40%, #E0D8CC 100%);
+    border-radius: 5px 5px 0 0;
+    position: relative;
+    box-shadow: 0 -2px 6px rgba(0,0,0,0.06);
+    transform: perspective(700px) rotateX(-7deg);
+    transform-origin: bottom center;
+    border-top: 1px solid rgba(255,255,255,0.8);
+  }
+  .desk-top::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      90deg,
+      transparent 0px,
+      transparent 36px,
+      rgba(0,0,0,0.015) 36px,
+      rgba(0,0,0,0.015) 37px
+    );
+    border-radius: 5px 5px 0 0;
+  }
+
+  /* Desk front */
+  .desk-front {
+    width: 430px;
+    height: 80px;
+    background: linear-gradient(180deg, #D8D2C8 0%, #C8C0B4 100%);
+    position: relative;
+    box-shadow: 0 10px 28px rgba(0,0,0,0.12);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 50px;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+  }
+  .desk-drawer {
+    width: 100px;
+    height: 28px;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 3px;
+    position: relative;
+  }
+  .desk-drawer::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 22px;
+    height: 3px;
+    background: rgba(255,255,255,0.25);
+    border-radius: 2px;
+  }
+
+  /* Desk legs */
+  .desk-legs {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 36px;
+    width: 430px;
+  }
+  .desk-leg {
+    width: 12px;
+    height: 24px;
+    background: linear-gradient(180deg, #B8B0A4 0%, #A8A098 100%);
+    border-radius: 0 0 3px 3px;
+  }
+
+  /* Items ON desk */
+  .desk-items {
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    width: 430px;
+    height: 145px;
+    transform: perspective(700px) rotateX(-4deg);
+    transform-origin: bottom center;
+  }
+
+  /* Monitor */
+  .monitor {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: itemDrop 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  }
+  .monitor-screen {
+    background: linear-gradient(135deg, #0F1117 0%, #1A1D27 50%, #0F1117 100%);
+    border: 2.5px solid #2A2D3A;
+    border-radius: 6px 6px 2px 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.3), inset 0 0 30px rgba(80,120,200,0.05);
+  }
+  .monitor-screen::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; height: 40%;
+    background: linear-gradient(180deg, rgba(255,255,255,0.04) 0%, transparent 100%);
+  }
+  .monitor-bezel {
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 5px;
+    background: #2A2D3A;
+    border-radius: 0 0 4px 4px;
+  }
+  .code-lines {
+    display: flex;
+    flex-direction: column;
+    gap: 3.5px;
+    padding: 7px;
+  }
+  .code-line {
+    height: 2.5px;
+    border-radius: 2px;
+    opacity: 0.7;
+  }
+  .monitor-stand {
+    width: 2.5px;
+    height: 11px;
+    background: #2A2D3A;
+  }
+  .monitor-base {
+    width: 22px;
+    height: 3px;
+    background: #2A2D3A;
+    border-radius: 2px;
+  }
+
+  .mon-left { left: 28px; bottom: 10px; }
+  .mon-left .monitor-screen { width: 92px; height: 60px; }
+  .mon-center { left: 158px; bottom: 10px; }
+  .mon-center .monitor-screen { width: 114px; height: 74px; }
+  .mon-right { right: 55px; bottom: 10px; }
+  .mon-right .monitor-screen { width: 82px; height: 52px; }
+
+  /* Lamp */
+  .lamp {
+    position: absolute;
+    right: 18px;
+    bottom: 8px;
+    animation: itemDrop 0.45s 0.15s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  }
+  .lamp-arm {
+    width: 2.5px;
+    height: 48px;
+    background: #C0BDB8;
+    position: relative;
+    margin-left: 10px;
+    transform: rotate(-14deg);
+    transform-origin: bottom center;
+  }
+  .lamp-arm::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -11px;
+    width: 26px;
+    height: 13px;
+    background: linear-gradient(180deg, #E8E4DC 0%, #D8D2C8 100%);
+    border-radius: 50% 50% 5px 5px;
+    box-shadow: 0 5px 14px rgba(255,230,150,0.25);
+  }
+  .lamp-base {
+    width: 22px;
+    height: 5px;
+    background: #C0BDB8;
+    border-radius: 3px;
+  }
+
+  /* Plant on desk */
+  .plant-desk {
+    position: absolute;
+    left: 4px;
+    bottom: 6px;
+    animation: itemDrop 0.45s 0.05s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  }
+  .plant-pot {
+    width: 22px;
+    height: 17px;
+    background: linear-gradient(180deg, #D0C8BE 0%, #C0B8AE 100%);
+    border-radius: 2px 2px 5px 5px;
+    clip-path: polygon(6% 0%, 94% 0%, 100% 100%, 0% 100%);
+  }
+  .plant-leaves { display: flex; justify-content: center; margin-bottom: -3px; }
+  .leaf {
+    width: 13px;
+    height: 18px;
+    background: linear-gradient(135deg, #5A8A6A 0%, #3A6A4A 100%);
+    border-radius: 50% 50% 50% 0;
+    transform-origin: bottom right;
+  }
+  .leaf:nth-child(2) { transform: scaleX(-1) rotate(-18deg); border-radius: 50% 50% 0 50%; }
+  .leaf:nth-child(3) { transform: rotate(18deg); }
+
+  /* Keyboard */
+  .keyboard {
+    position: absolute;
+    bottom: 2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 122px;
+    height: 30px;
+    background: linear-gradient(180deg, #F0EDE8 0%, #E4E0D8 100%);
+    border-radius: 4px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.10), inset 0 1px 0 rgba(255,255,255,0.7);
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 1.5px;
+    padding: 4px 4px 3px;
+    border: 1px solid rgba(0,0,0,0.06);
+  }
+  .key {
+    background: white;
+    border-radius: 1.5px;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.15);
+  }
+
+  /* Mouse */
+  .mouse {
+    position: absolute;
+    bottom: 5px;
+    left: calc(50% + 68px);
+    width: 21px;
+    height: 28px;
+    background: linear-gradient(180deg, #ECEAE5 0%, #DCD8D0 100%);
+    border-radius: 10px 10px 7px 7px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.10), inset 0 1px 0 rgba(255,255,255,0.7);
+    border: 1px solid rgba(0,0,0,0.06);
+  }
+  .mouse::after {
+    content: '';
+    position: absolute;
+    top: 7px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1px;
+    height: 10px;
+    background: rgba(0,0,0,0.12);
+  }
+
+  /* Chair */
+  .chair {
+    position: absolute;
+    bottom: 136px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: itemDrop 0.5s 0.25s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  }
+  .chair-back {
+    width: 58px;
+    height: 66px;
+    background: linear-gradient(160deg, #2A2A35 0%, #1A1A24 100%);
+    border-radius: 7px 7px 3px 3px;
+    margin: 0 auto;
+    position: relative;
+    box-shadow: 2px 6px 16px rgba(0,0,0,0.25);
+  }
+  .chair-back::after {
+    content: '';
+    position: absolute;
+    top: 8px; left: 7px; right: 7px; bottom: 8px;
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 4px;
+  }
+  .chair-seat {
+    width: 68px;
+    height: 18px;
+    background: linear-gradient(180deg, #252530 0%, #1A1A24 100%);
+    border-radius: 4px;
+    margin: 0 auto;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  }
+  .chair-base { width: 2px; height: 28px; background: #A0A09A; margin: 0 auto; }
+  .chair-wheels { display: flex; justify-content: space-between; width: 58px; margin: 0 auto; }
+  .wheel { width: 12px; height: 5px; background: #888; border-radius: 3px; }
+
+  /* Floor plant */
+  .plant-floor {
+    position: absolute;
+    bottom: 138px;
+    left: 72px;
+    animation: itemDrop 0.45s 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  }
+  .floor-pot {
+    width: 30px;
+    height: 24px;
+    background: linear-gradient(180deg, #D0C8BE 0%, #C0B8AE 100%);
+    border-radius: 2px 2px 6px 6px;
+    clip-path: polygon(6% 0%, 94% 0%, 100% 100%, 0% 100%);
+  }
+  .big-leaf { width: 18px; height: 28px; }
+
+  /* Hotspot buttons */
+  .hotspot {
+    position: absolute;
+    background: var(--white);
+    border: 1px solid var(--border-strong);
+    color: var(--ink-secondary);
+    font-family: 'Outfit', sans-serif;
+    font-size: 10.5px;
+    font-weight: 500;
+    padding: 5px 11px;
+    border-radius: 20px;
+    cursor: pointer;
+    white-space: nowrap;
+    box-shadow: var(--shadow-soft);
+    animation: floatBob 2.8s ease-in-out infinite;
+    transition: all 0.18s;
+    z-index: 30;
+    letter-spacing: 0.01em;
+  }
+  .hotspot:hover {
+    background: var(--ink);
+    color: white;
+    border-color: var(--ink);
+    box-shadow: var(--shadow-mid);
+  }
+  .hotspot::before { content: '+ '; opacity: 0.6; }
+  .hotspot:nth-child(2) { animation-delay: 0.5s; }
+  .hotspot:nth-child(3) { animation-delay: 1.0s; }
+
+  @keyframes floatBob {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-5px); }
+  }
+
+  @keyframes itemDrop {
+    from { opacity: 0; transform: translateY(-18px) scale(0.85); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
+  /* ── RIGHT INSPECTOR ── */
+  .inspector {
+    width: 256px;
+    background: var(--white);
+    border-left: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    overflow: hidden;
+  }
+
+  .inspector-header {
+    padding: 18px 18px 14px;
+    border-bottom: 1px solid var(--border);
+  }
+  .inspector-eyebrow {
+    font-size: 10px;
+    font-weight: 500;
+    color: var(--ink-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 5px;
+  }
+  .inspector-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.2;
+  }
+  .inspector-sub {
+    font-size: 11px;
+    color: var(--ink-muted);
+    margin-top: 4px;
+    font-weight: 300;
+    line-height: 1.5;
+  }
+
+  .selected-item-preview {
+    padding: 14px 18px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--surface);
+  }
+  .preview-emoji { font-size: 30px; }
+  .preview-info { flex: 1; }
+  .preview-name { font-size: 13px; font-weight: 500; }
+  .preview-desc {
+    font-size: 11px;
+    color: var(--ink-muted);
+    margin-top: 2px;
+    line-height: 1.45;
+    font-weight: 300;
+  }
+
+  .duration-selector { padding: 14px 18px; border-bottom: 1px solid var(--border); }
+  .section-label {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.09em;
+    color: var(--ink-muted);
+    margin-bottom: 9px;
+    font-weight: 500;
+  }
+  .duration-tabs {
+    display: flex;
+    background: var(--surface);
+    border-radius: 8px;
+    padding: 3px;
+    gap: 2px;
+    border: 1px solid var(--border);
+  }
+  .dur-tab {
+    flex: 1;
+    text-align: center;
+    font-size: 11.5px;
+    font-weight: 400;
+    padding: 5px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.18s;
+    color: var(--ink-muted);
+  }
+  .dur-tab.active {
+    background: var(--white);
+    color: var(--ink);
+    font-weight: 500;
+    box-shadow: var(--shadow-soft);
+  }
+
+  .price-display {
+    padding: 14px 18px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+  }
+  .price-main {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 30px;
+    font-weight: 600;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+  }
+  .price-period {
+    font-size: 11px;
+    color: var(--ink-muted);
+    font-weight: 300;
+  }
+
+  .qty-control {
+    padding: 12px 18px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .qty-label { font-size: 12px; font-weight: 500; }
+  .qty-btns { display: flex; align-items: center; gap: 10px; }
+  .qty-btn {
+    width: 28px; height: 28px;
+    border-radius: 7px;
+    border: 1px solid var(--border-strong);
+    background: var(--white);
+    font-size: 15px;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--ink);
+    transition: all 0.18s;
+    line-height: 1;
+  }
+  .qty-btn:hover { border-color: var(--ink); background: var(--ink); color: white; }
+  .qty-num { font-size: 14px; font-weight: 500; width: 20px; text-align: center; }
+
+  .remove-btn {
+    margin: 12px 18px 0;
+    width: calc(100% - 36px);
+    padding: 8px;
+    border: 1px solid var(--border-strong);
+    color: var(--ink-secondary);
+    background: transparent;
+    border-radius: 8px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.18s;
+    font-weight: 400;
+  }
+  .remove-btn:hover { border-color: var(--ink); color: var(--ink); }
+
+  .workspace-summary {
+    margin: 12px 18px;
+    flex: 1;
+    overflow-y: auto;
+  }
+  .workspace-summary::-webkit-scrollbar { width: 2px; }
+  .workspace-summary::-webkit-scrollbar-thumb { background: var(--border); }
+
+  .summary-header-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+  }
+  .summary-title {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.09em;
+    color: var(--ink-muted);
+    font-weight: 500;
+  }
+  .summary-count {
+    font-size: 10px;
+    background: var(--surface);
+    color: var(--ink-secondary);
+    padding: 2px 7px;
+    border-radius: 10px;
+    font-weight: 500;
+  }
+  .summary-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 11.5px;
+    padding: 7px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .summary-item:last-child { border-bottom: none; }
+  .summary-item-name { display: flex; align-items: center; gap: 6px; color: var(--ink); font-weight: 400; }
+  .summary-item-price { color: var(--ink-muted); font-weight: 300; font-size: 11px; }
+
+  /* ── BOTTOM RENT BAR ── */
+  .rent-bar {
+    height: 58px;
+    background: var(--white);
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+    flex-shrink: 0;
+    z-index: 100;
+  }
+  .rent-bar-left { display: flex; flex-direction: column; }
+  .rent-items-count {
+    font-size: 10.5px;
+    color: var(--ink-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    font-weight: 500;
+  }
+  .rent-total {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.1;
+  }
+  .rent-total span {
+    font-size: 12px;
+    font-family: 'Outfit', sans-serif;
+    color: var(--ink-muted);
+    margin-left: 3px;
+    font-weight: 300;
+  }
+  .rent-bar-center {
+    font-size: 11px;
+    color: var(--ink-muted);
+    text-align: center;
+    font-weight: 300;
+  }
+  .rent-cta {
+    background: var(--ink);
+    color: white;
+    border: none;
+    font-family: 'Outfit', sans-serif;
+    font-size: 13.5px;
+    font-weight: 500;
+    padding: 12px 28px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s;
+    letter-spacing: 0.01em;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+  }
+  .rent-cta:hover {
+    background: var(--accent-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.22);
+  }
+
+  /* ── LIFESTYLE ZONES STRIP ── */
+  .lifestyle-strip {
+    height: 36px;
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+  }
+  .zone-pill {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--ink-muted);
+    border-right: 1px solid var(--border);
+    cursor: pointer;
+    transition: all 0.18s;
+    letter-spacing: 0.01em;
+  }
+  .zone-pill:hover { background: var(--white); color: var(--ink); }
+  .zone-pill:last-child { border-right: none; }
+</style>
+</head>
+<body>
+
+<!-- TOP NAV -->
+<div class="topbar">
+  <div class="logo-area">
+    <div class="logo">Workspace Builder</div>
+    <div class="logo-divider"></div>
+    <div class="logo-sub">Office Rentals · Bali</div>
+  </div>
+
+  <div class="topbar-center">
+    <button class="nav-pill active">Design</button>
+    <button class="nav-pill">Templates</button>
+    <button class="nav-pill">Summary</button>
+  </div>
+
+  <div class="topbar-right">
+    <button class="btn-ghost">↩ Undo</button>
+    <button class="btn-ghost">Share</button>
+    <button class="btn-save">Save Setup</button>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+  <!-- LEFT SHELF -->
+  <div class="shelf">
+    <div class="shelf-header">
+      <div class="shelf-title">Equipment</div>
+      <div class="shelf-sub">Click any item to place it</div>
+    </div>
+
+    <div class="search-bar">
+      <span class="search-icon">⌕</span>
+      <input class="search-input" type="text" placeholder="Search items…">
+    </div>
+
+    <div class="category-tabs">
+      <div class="cat-tab active">All</div>
+      <div class="cat-tab">Desks</div>
+      <div class="cat-tab">Chairs</div>
+      <div class="cat-tab">Screens</div>
+      <div class="cat-tab">Extras</div>
+    </div>
+
+    <div class="shelf-items">
+
+      <div class="item-card selected">
+        <div class="item-add-btn">+</div>
+        <span class="item-emoji">🖥️</span>
+        <span class="item-name">27" 4K Monitor</span>
+        <div class="item-price">$8 / day</div>
+      </div>
+
+      <div class="item-card">
+        <div class="item-add-btn">+</div>
+        <span class="item-emoji">🪑</span>
+        <span class="item-name">Ergo Mesh Chair</span>
+        <div class="item-price">$5 / day</div>
+      </div>
+
+      <div class="item-card">
+        <div class="item-add-btn">+</div>
+        <span class="item-emoji">🗄️</span>
+        <span class="item-name">Standing Desk</span>
+        <div class="item-price">$12 / day</div>
+      </div>
+
+      <div class="item-card">
+        <div class="item-add-btn">+</div>
+        <span class="item-emoji">💡</span>
+        <span class="item-name">LED Desk Lamp</span>
+        <div class="item-price">$3 / day</div>
+      </div>
+
+      <div class="item-card">
+        <div class="item-add-btn">+</div>
+        <span class="item-emoji">🌿</span>
+        <span class="item-name">Monstera Plant</span>
+        <div class="item-price">$2 / day</div>
+      </div>
+
+      <div class="item-card">
+        <div class="item-add-btn">+</div>
+        <span class="item-emoji">⌨️</span>
+        <span class="item-name">Mech Keyboard</span>
+        <div class="item-price">$4 / day</div>
+      </div>
+
+      <div class="item-card">
+        <div class="item-add-btn">+</div>
+        <span class="item-emoji">🖱️</span>
+        <span class="item-name">Wireless Mouse</span>
+        <div class="item-price">$2 / day</div>
+      </div>
+
+      <div class="item-card">
+        <div class="item-add-btn">+</div>
+        <span class="item-emoji">📡</span>
+        <span class="item-name">Ethernet Hub</span>
+        <div class="item-price">$3 / day</div>
+      </div>
+
+      <div class="item-card">
+        <div class="item-add-btn">+</div>
+        <span class="item-emoji">🔆</span>
+        <span class="item-name">Ring Light</span>
+        <div class="item-price">$4 / day</div>
+      </div>
+
+      <div class="item-card">
+        <div class="item-add-btn">+</div>
+        <span class="item-emoji">🖥️</span>
+        <span class="item-name">Ultrawide 34"</span>
+        <div class="item-price">$14 / day</div>
+      </div>
+
+    </div>
+
+    <div class="shelf-footer">
+      <span>🚚</span> Free delivery & setup in Bali
+    </div>
+  </div>
+
+  <!-- CENTER CANVAS -->
+  <div class="canvas-area">
+
+    <!-- Floating toolbar -->
+    <div class="canvas-toolbar">
+      <button class="toolbar-btn active">The Solo Dev</button>
+      <div class="toolbar-divider"></div>
+      <button class="toolbar-btn">Content Creator</button>
+      <button class="toolbar-btn">Minimalist</button>
+      <div class="toolbar-divider"></div>
+      <button class="toolbar-btn">⊞ Grid</button>
+      <button class="toolbar-btn">🗑</button>
+    </div>
+
+    <div class="scene-wrapper">
+      <div class="scene">
+
+        <!-- Hotspot buttons -->
+        <div class="hotspot" style="top: 42px; left: 44px;">Add Monitor</div>
+        <div class="hotspot" style="top: 62px; right: 34px;">Add Lamp</div>
+        <div class="hotspot" style="bottom: 112px; left: 18px;">Place a Plant</div>
+
+        <!-- Platform -->
+        <div class="platform"></div>
+
+        <!-- Desk container -->
+        <div class="desk-container">
+
+          <!-- Items on desk -->
+          <div class="desk-items">
+
+            <!-- Left monitor -->
+            <div class="monitor mon-left">
+              <div class="monitor-screen">
+                <div class="code-lines">
+                  <div class="code-line" style="width:58px; background:#58A6FF;"></div>
+                  <div class="code-line" style="width:42px; background:#79C0FF;"></div>
+                  <div class="code-line" style="width:66px; background:#56D364;"></div>
+                  <div class="code-line" style="width:36px; background:#FF7B72;"></div>
+                  <div class="code-line" style="width:52px; background:#58A6FF;"></div>
+                </div>
+                <div class="monitor-bezel"></div>
+              </div>
+              <div class="monitor-stand"></div>
+              <div class="monitor-base"></div>
+            </div>
+
+            <!-- Center monitor (main) -->
+            <div class="monitor mon-center">
+              <div class="monitor-screen">
+                <div class="code-lines">
+                  <div class="code-line" style="width:72px; background:#C9D1D9;"></div>
+                  <div class="code-line" style="width:88px; background:#58A6FF;"></div>
+                  <div class="code-line" style="width:62px; background:#56D364;"></div>
+                  <div class="code-line" style="width:78px; background:#79C0FF;"></div>
+                  <div class="code-line" style="width:50px; background:#FF7B72;"></div>
+                  <div class="code-line" style="width:82px; background:#C9D1D9;"></div>
+                </div>
+                <div class="monitor-bezel"></div>
+              </div>
+              <div class="monitor-stand"></div>
+              <div class="monitor-base"></div>
+            </div>
+
+            <!-- Right monitor -->
+            <div class="monitor mon-right">
+              <div class="monitor-screen" style="background: linear-gradient(135deg, #0d1117 0%, #161b22 100%);">
+                <div class="code-lines">
+                  <div class="code-line" style="width:50px; background:#8B949E;"></div>
+                  <div class="code-line" style="width:38px; background:#58A6FF;"></div>
+                  <div class="code-line" style="width:55px; background:#56D364;"></div>
+                </div>
+                <div class="monitor-bezel"></div>
+              </div>
+              <div class="monitor-stand"></div>
+              <div class="monitor-base"></div>
+            </div>
+
+            <!-- Lamp -->
+            <div class="lamp">
+              <div class="lamp-arm"></div>
+              <div class="lamp-base"></div>
+            </div>
+
+            <!-- Plant on desk -->
+            <div class="plant-desk">
+              <div class="plant-leaves">
+                <div class="leaf"></div>
+                <div class="leaf"></div>
+                <div class="leaf"></div>
+              </div>
+              <div class="plant-pot"></div>
+            </div>
+
+            <!-- Keyboard -->
+            <div class="keyboard">
+              <div class="key"></div><div class="key"></div><div class="key"></div>
+              <div class="key"></div><div class="key"></div><div class="key"></div>
+              <div class="key"></div><div class="key"></div><div class="key"></div>
+              <div class="key"></div><div class="key"></div><div class="key"></div>
+              <div class="key"></div><div class="key"></div><div class="key"></div>
+              <div class="key"></div><div class="key"></div><div class="key"></div>
+              <div class="key"></div><div class="key"></div><div class="key"></div>
+              <div class="key"></div><div class="key"></div><div class="key"></div>
+              <div class="key"></div><div class="key"></div><div class="key"></div>
+              <div class="key"></div><div class="key"></div><div class="key"></div>
+              <div class="key"></div><div class="key"></div><div class="key"></div>
+              <div class="key" style="grid-column: span 4;"></div>
+            </div>
+
+            <!-- Mouse -->
+            <div class="mouse"></div>
+
+          </div>
+
+          <div class="desk-top"></div>
+          <div class="desk-front">
+            <div class="desk-drawer"></div>
+            <div class="desk-drawer"></div>
+          </div>
+          <div class="desk-legs">
+            <div class="desk-leg"></div>
+            <div class="desk-leg"></div>
+          </div>
+        </div>
+
+        <!-- Chair -->
+        <div class="chair">
+          <div class="chair-back"></div>
+          <div class="chair-seat"></div>
+          <div class="chair-base"></div>
+          <div class="chair-wheels">
+            <div class="wheel"></div>
+            <div class="wheel"></div>
+            <div class="wheel"></div>
+          </div>
+        </div>
+
+        <!-- Floor plant -->
+        <div class="plant-floor">
+          <div class="plant-leaves">
+            <div class="leaf big-leaf"></div>
+            <div class="leaf big-leaf"></div>
+            <div class="leaf big-leaf"></div>
+          </div>
+          <div class="floor-pot"></div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- RIGHT INSPECTOR -->
+  <div class="inspector">
+    <div class="inspector-header">
+      <div class="inspector-eyebrow">Selected Item</div>
+      <div class="inspector-title">27" 4K Monitor</div>
+      <div class="inspector-sub">Ship pixels properly. Dell UltraSharp, USB-C.</div>
+    </div>
+
+    <div class="selected-item-preview">
+      <div class="preview-emoji">🖥️</div>
+      <div class="preview-info">
+        <div class="preview-name">27" 4K Display</div>
+        <div class="preview-desc">USB-C + HDMI. Height-adjustable stand included.</div>
+      </div>
+    </div>
+
+    <div class="duration-selector">
+      <div class="section-label">Rental Duration</div>
+      <div class="duration-tabs">
+        <div class="dur-tab">Day</div>
+        <div class="dur-tab">Week</div>
+        <div class="dur-tab active">Month</div>
+      </div>
+    </div>
+
+    <div class="price-display">
+      <div class="price-main">$120</div>
+      <div class="price-period">per monitor / month</div>
+    </div>
+
+    <div class="qty-control">
+      <div class="qty-label">Quantity</div>
+      <div class="qty-btns">
+        <div class="qty-btn">−</div>
+        <div class="qty-num">2</div>
+        <div class="qty-btn">+</div>
+      </div>
+    </div>
+
+    <button class="remove-btn">Remove from workspace</button>
+
+    <div class="workspace-summary">
+      <div class="summary-header-row">
+        <div class="summary-title">Your Setup</div>
+        <div class="summary-count">6 items</div>
+      </div>
+      <div class="summary-item">
+        <span class="summary-item-name"><span>🖥️</span> 27" Monitor ×2</span>
+        <span class="summary-item-price">$240</span>
+      </div>
+      <div class="summary-item">
+        <span class="summary-item-name"><span>🪑</span> Ergo Chair ×1</span>
+        <span class="summary-item-price">$90</span>
+      </div>
+      <div class="summary-item">
+        <span class="summary-item-name"><span>🗄️</span> Standing Desk ×1</span>
+        <span class="summary-item-price">$200</span>
+      </div>
+      <div class="summary-item">
+        <span class="summary-item-name"><span>💡</span> LED Lamp ×1</span>
+        <span class="summary-item-price">$45</span>
+      </div>
+      <div class="summary-item">
+        <span class="summary-item-name"><span>🌿</span> Monstera ×1</span>
+        <span class="summary-item-price">$30</span>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- LIFESTYLE ZONES STRIP -->
+<div class="lifestyle-strip">
+  <div class="zone-pill">☕ Coffee Station</div>
+  <div class="zone-pill">🏄 Outdoor Gear</div>
+  <div class="zone-pill">🛋️ Relax Zone</div>
+  <div class="zone-pill">🔧 Garage Space</div>
+</div>
+
+<!-- BOTTOM RENT BAR -->
+<div class="rent-bar">
+  <div class="rent-bar-left">
+    <div class="rent-items-count">6 items in workspace</div>
+    <div class="rent-total">$605 <span>/ month</span></div>
+  </div>
+  <div class="rent-bar-center">
+    Delivered & set up anywhere in Bali · 48h
+  </div>
+  <button class="rent-cta">Rent My Setup →</button>
+</div>
+
+</body>
+</html>
