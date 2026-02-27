@@ -24,7 +24,7 @@ export interface Product {
   imageUrl: string;
   imagePlaceholder: string;
   slug: string;
-  width: number;  // canvas footprint in grid units
+  width: number; // canvas footprint in grid units
   height: number; // canvas footprint in grid units
   tags: string[];
 }
@@ -63,7 +63,8 @@ export const products: Product[] = [
     id: "24-full-hd-monitor-a24i",
     name: '24" Full HD Office Monitor A24i',
     category: "monitors",
-    description: "Xiaomi 23.8\" IPS at 100Hz — sharp, color-accurate, and easy on the eyes.",
+    description:
+      'Xiaomi 23.8" IPS at 100Hz — sharp, color-accurate, and easy on the eyes.',
     emoji: "🖥",
     pricePerDay: 1,
     pricePerWeek: 6,
@@ -80,7 +81,8 @@ export const products: Product[] = [
     id: "24-full-hd-monitor-1c",
     name: '24" Full HD Office Monitor 1C',
     category: "monitors",
-    description: "Budget-friendly 75Hz IPS panel — perfect for focused work sessions.",
+    description:
+      "Budget-friendly 75Hz IPS panel — perfect for focused work sessions.",
     emoji: "🖥",
     pricePerDay: 1,
     pricePerWeek: 5,
@@ -97,7 +99,8 @@ export const products: Product[] = [
     id: "27-full-hd-monitor-mid",
     name: '27" Full HD Office Monitor MiD',
     category: "monitors",
-    description: "Bigger screen, same sharpness — 27\" with 100% sRGB and 300 nits.",
+    description:
+      'Bigger screen, same sharpness — 27" with 100% sRGB and 300 nits.',
     emoji: "🖥",
     pricePerDay: 1,
     pricePerWeek: 7,
@@ -114,7 +117,8 @@ export const products: Product[] = [
     id: "27-full-hd-monitor-a27i",
     name: '27" Full HD Office Monitor A27i',
     category: "monitors",
-    description: "Color-accurate 100Hz IPS with VESA mount — your daily driver.",
+    description:
+      "Color-accurate 100Hz IPS with VESA mount — your daily driver.",
     emoji: "🖥",
     pricePerDay: 2,
     pricePerWeek: 8,
@@ -131,7 +135,8 @@ export const products: Product[] = [
     id: "27-4k-multimedia-monitor",
     name: '27" 4K Multimedia Monitor',
     category: "monitors",
-    description: "Pixel-perfect 4K with USB-C and 95% DCI-P3 — ship pixels properly.",
+    description:
+      "Pixel-perfect 4K with USB-C and 95% DCI-P3 — ship pixels properly.",
     emoji: "🖥",
     pricePerDay: 2,
     pricePerWeek: 13,
@@ -148,7 +153,8 @@ export const products: Product[] = [
     id: "27-4k-grading-monitor",
     name: '27" 4K+ Grading Monitor',
     category: "monitors",
-    description: "PANTONE Validated with 99% DCI-P3 — the colorist's weapon of choice.",
+    description:
+      "PANTONE Validated with 99% DCI-P3 — the colorist's weapon of choice.",
     emoji: "🖥",
     pricePerDay: 3,
     pricePerWeek: 18,
@@ -165,7 +171,8 @@ export const products: Product[] = [
     id: "27-5k-apple-studio-display",
     name: '27" 5K Apple Studio Display',
     category: "monitors",
-    description: "5K Retina, 600 nits, P3 wide color, 12MP camera — the Apple experience.",
+    description:
+      "5K Retina, 600 nits, P3 wide color, 12MP camera — the Apple experience.",
     emoji: "🖥",
     pricePerDay: 11,
     pricePerWeek: 75,
@@ -176,13 +183,22 @@ export const products: Product[] = [
     slug: "/products/apple-studio-display",
     width: 3,
     height: 2,
-    tags: ["monitor", "27-inch", "5k", "apple", "thunderbolt", "retina", "premium"],
+    tags: [
+      "monitor",
+      "27-inch",
+      "5k",
+      "apple",
+      "thunderbolt",
+      "retina",
+      "premium",
+    ],
   },
   {
     id: "27-2k-grading-monitor-benq",
     name: '27" 2K+ Grading Monitor',
     category: "monitors",
-    description: "BenQ QHD with factory-calibrated Adobe RGB — for print and photo pros.",
+    description:
+      "BenQ QHD with factory-calibrated Adobe RGB — for print and photo pros.",
     emoji: "🖥",
     pricePerDay: 3,
     pricePerWeek: 19,
@@ -199,7 +215,8 @@ export const products: Product[] = [
     id: "30-gaming-monitor",
     name: '30" Full HD Gaming Monitor',
     category: "monitors",
-    description: "Ultrawide 200Hz IPS — for devs who also like to frag after hours.",
+    description:
+      "Ultrawide 200Hz IPS — for devs who also like to frag after hours.",
     emoji: "🖥",
     pricePerDay: 2,
     pricePerWeek: 14,
@@ -227,13 +244,22 @@ export const products: Product[] = [
     slug: "/products/34-4-k-curved-monitor-180-hz",
     width: 3,
     height: 2,
-    tags: ["monitor", "34-inch", "4k", "curved", "180hz", "gaming", "ultrawide"],
+    tags: [
+      "monitor",
+      "34-inch",
+      "4k",
+      "curved",
+      "180hz",
+      "gaming",
+      "ultrawide",
+    ],
   },
   {
     id: "34-4k-curved-monitor",
     name: '34" 4K Curved Monitor',
     category: "monitors",
-    description: "Immersive 144Hz ultrawide with 121% sRGB — your panoramic workstation.",
+    description:
+      "Immersive 144Hz ultrawide with 121% sRGB — your panoramic workstation.",
     emoji: "🖥",
     pricePerDay: 3,
     pricePerWeek: 19,
@@ -250,7 +276,8 @@ export const products: Product[] = [
     id: "32-qhd-ergonomic-monitor-lg",
     name: '32" QHD Ergonomic Monitor',
     category: "monitors",
-    description: "LG Ergo stand with 96W USB-C charging — plug in, power up, ship code.",
+    description:
+      "LG Ergo stand with 96W USB-C charging — plug in, power up, ship code.",
     emoji: "🖥",
     pricePerDay: 3,
     pricePerWeek: 19,
@@ -271,7 +298,8 @@ export const products: Product[] = [
     id: "ergonomic-office-chair",
     name: "Ergonomic Office Chair",
     category: "furniture",
-    description: "Mesh back with 4D armrests — your spine's best friend for 12-hour sessions.",
+    description:
+      "Mesh back with 4D armrests — your spine's best friend for 12-hour sessions.",
     emoji: "🪑",
     pricePerDay: 1,
     pricePerWeek: 6,
@@ -305,7 +333,8 @@ export const products: Product[] = [
     id: "mechanical-adjustable-desk",
     name: "Mechanical Adjustable Desk",
     category: "furniture",
-    description: "No electricity needed — crank-powered height adjustment, off-grid ready.",
+    description:
+      "No electricity needed — crank-powered height adjustment, off-grid ready.",
     emoji: "🗄️",
     pricePerDay: 2,
     pricePerWeek: 9,
@@ -322,7 +351,8 @@ export const products: Product[] = [
     id: "magnetic-whiteboard",
     name: "Magnetic Whiteboard",
     category: "furniture",
-    description: "90×60cm with magnets, marker and eraser — brainstorm in analog.",
+    description:
+      "90×60cm with magnets, marker and eraser — brainstorm in analog.",
     emoji: "📋",
     pricePerDay: 1,
     pricePerWeek: 5,
@@ -339,7 +369,8 @@ export const products: Product[] = [
     id: "standing-whiteboard",
     name: "Standing Whiteboard 240×120",
     category: "furniture",
-    description: "The big board — 240×120cm for team sprints and system diagrams.",
+    description:
+      "The big board — 240×120cm for team sprints and system diagrams.",
     emoji: "📋",
     pricePerDay: 1,
     pricePerWeek: 7,
@@ -360,7 +391,8 @@ export const products: Product[] = [
     id: "apple-mac-studio",
     name: "Apple Mac Studio",
     category: "computers",
-    description: "M1 Max or M2 Ultra — desktop power for video, 3D, and heavy compiles.",
+    description:
+      "M1 Max or M2 Ultra — desktop power for video, 3D, and heavy compiles.",
     emoji: "💻",
     pricePerDay: 7,
     pricePerWeek: 49,
@@ -371,13 +403,22 @@ export const products: Product[] = [
     slug: "/products/apple-mac-studio",
     width: 1,
     height: 1,
-    tags: ["computer", "apple", "mac", "studio", "m1-max", "m2-ultra", "desktop"],
+    tags: [
+      "computer",
+      "apple",
+      "mac",
+      "studio",
+      "m1-max",
+      "m2-ultra",
+      "desktop",
+    ],
   },
   {
     id: "apple-mac-mini-m2",
     name: "Apple Mac Mini M2",
     category: "computers",
-    description: "Compact M2 desktop with Thunderbolt 4 — tiny footprint, big output.",
+    description:
+      "Compact M2 desktop with Thunderbolt 4 — tiny footprint, big output.",
     emoji: "💻",
     pricePerDay: 4,
     pricePerWeek: 28,
@@ -411,7 +452,8 @@ export const products: Product[] = [
     id: "windows-laptop-15",
     name: '15" Office Windows Laptop',
     category: "computers",
-    description: "Intel i3, 8GB, 256GB SSD — reliable Windows workhorse for daily tasks.",
+    description:
+      "Intel i3, 8GB, 256GB SSD — reliable Windows workhorse for daily tasks.",
     emoji: "💻",
     pricePerDay: 3,
     pricePerWeek: 16,
@@ -432,7 +474,8 @@ export const products: Product[] = [
     id: "logitech-mx-keyboard",
     name: "Logitech MX Keyboard",
     category: "peripherals",
-    description: "Easy-Switch across 3 devices — the keyboard that follows your flow.",
+    description:
+      "Easy-Switch across 3 devices — the keyboard that follows your flow.",
     emoji: "⌨️",
     pricePerDay: 1,
     pricePerWeek: 7,
@@ -449,7 +492,8 @@ export const products: Product[] = [
     id: "apple-magic-keyboard",
     name: "Apple Magic Keyboard",
     category: "peripherals",
-    description: "Touch ID, numeric keypad, wireless — the full-size Apple typing experience.",
+    description:
+      "Touch ID, numeric keypad, wireless — the full-size Apple typing experience.",
     emoji: "⌨️",
     pricePerDay: 2,
     pricePerWeek: 8,
@@ -483,7 +527,8 @@ export const products: Product[] = [
     id: "logitech-mx-master-s3",
     name: "Logitech MX Master Mouse S3",
     category: "peripherals",
-    description: "8,000 DPI Darkfield, 70-day battery — the ergonomic mouse that pros swear by.",
+    description:
+      "8,000 DPI Darkfield, 70-day battery — the ergonomic mouse that pros swear by.",
     emoji: "🖱️",
     pricePerDay: 1,
     pricePerWeek: 6,
@@ -500,7 +545,8 @@ export const products: Product[] = [
     id: "apple-magic-mouse",
     name: "Apple Magic Mouse",
     category: "peripherals",
-    description: "Multi-touch glass surface — swipe, scroll, and click the Apple way.",
+    description:
+      "Multi-touch glass surface — swipe, scroll, and click the Apple way.",
     emoji: "🖱️",
     pricePerDay: 1,
     pricePerWeek: 6,
@@ -534,7 +580,8 @@ export const products: Product[] = [
     id: "6-in-1-converter-hub",
     name: "6-in-1 Converter Hub",
     category: "peripherals",
-    description: "USB-C, USB 3.0, 4K HDMI, SD card — one dongle to rule them all.",
+    description:
+      "USB-C, USB 3.0, 4K HDMI, SD card — one dongle to rule them all.",
     emoji: "🔌",
     pricePerDay: 1,
     pricePerWeek: 2,
@@ -551,7 +598,7 @@ export const products: Product[] = [
     id: "ergonomic-laptop-stand",
     name: "Ergonomic Laptop Stand",
     category: "peripherals",
-    description: "Fits 10\"–17\" laptops — raise your screen, save your neck.",
+    description: 'Fits 10"–17" laptops — raise your screen, save your neck.',
     emoji: "📐",
     pricePerDay: 1,
     pricePerWeek: 2,
@@ -568,7 +615,8 @@ export const products: Product[] = [
     id: "adjustable-monitor-stand",
     name: "Adjustable Monitor Stand",
     category: "peripherals",
-    description: "11–18cm height adjustment with storage compartment underneath.",
+    description:
+      "11–18cm height adjustment with storage compartment underneath.",
     emoji: "📐",
     pricePerDay: 1,
     pricePerWeek: 2,
@@ -585,7 +633,8 @@ export const products: Product[] = [
     id: "monitor-light-bar",
     name: "Monitor Light Bar",
     category: "peripherals",
-    description: "Mijia dimmable bar, 2700–6500K, Ra95 — zero glare on your screen.",
+    description:
+      "Mijia dimmable bar, 2700–6500K, Ra95 — zero glare on your screen.",
     emoji: "💡",
     pricePerDay: 1,
     pricePerWeek: 5,
@@ -602,7 +651,8 @@ export const products: Product[] = [
     id: "wifi-range-extender",
     name: "WiFi Range Extender",
     category: "peripherals",
-    description: "1200Mbps dual-band with ethernet port — kill those dead zones.",
+    description:
+      "1200Mbps dual-band with ethernet port — kill those dead zones.",
     emoji: "📡",
     pricePerDay: 1,
     pricePerWeek: 3,
@@ -619,7 +669,8 @@ export const products: Product[] = [
     id: "wifi-6-router",
     name: "Dual-Band Wi-Fi 6 Router",
     category: "peripherals",
-    description: "TP-Link AX5400 handling 200+ devices — your villa's internet backbone.",
+    description:
+      "TP-Link AX5400 handling 200+ devices — your villa's internet backbone.",
     emoji: "📡",
     pricePerDay: 2,
     pricePerWeek: 10,
@@ -636,7 +687,8 @@ export const products: Product[] = [
     id: "smart-power-strip-6",
     name: "Smart Power Strip 6",
     category: "peripherals",
-    description: "EU/US/AU plugs + 3× USB — the universal travel power companion.",
+    description:
+      "EU/US/AU plugs + 3× USB — the universal travel power companion.",
     emoji: "🔌",
     pricePerDay: 1,
     pricePerWeek: 2,
@@ -653,7 +705,7 @@ export const products: Product[] = [
     id: "portable-tv-stand",
     name: "Portable TV Stand",
     category: "peripherals",
-    description: "Fits 32\"–90\" screens, 70kg max — roll your display anywhere.",
+    description: 'Fits 32"–90" screens, 70kg max — roll your display anywhere.',
     emoji: "📺",
     pricePerDay: 1,
     pricePerWeek: 4,
@@ -674,7 +726,7 @@ export const products: Product[] = [
     id: "nintendo-switch-2",
     name: "Nintendo Switch 2",
     category: "gaming",
-    description: "7\" OLED, Mario Kart World included — unwind between deploys.",
+    description: '7" OLED, Mario Kart World included — unwind between deploys.',
     emoji: "🎮",
     pricePerDay: 4,
     pricePerWeek: 28,
@@ -691,7 +743,8 @@ export const products: Product[] = [
     id: "sony-playstation-5",
     name: "Sony PlayStation®5",
     category: "gaming",
-    description: "4K/120Hz, 1TB SSD, DualSense haptics — the after-work reward.",
+    description:
+      "4K/120Hz, 1TB SSD, DualSense haptics — the after-work reward.",
     emoji: "🎮",
     pricePerDay: 4,
     pricePerWeek: 28,
@@ -725,7 +778,8 @@ export const products: Product[] = [
     id: "smart-tv-55",
     name: '55" Smart TV 4K',
     category: "gaming",
-    description: "4K UHD with HDR and Dolby Digital+ — big screen for big ideas.",
+    description:
+      "4K UHD with HDR and Dolby Digital+ — big screen for big ideas.",
     emoji: "📺",
     pricePerDay: 3,
     pricePerWeek: 19,
@@ -742,7 +796,7 @@ export const products: Product[] = [
     id: "smart-tv-65",
     name: '65" Smart TV 4K',
     category: "gaming",
-    description: "65\" 4K UHD — presentations, movie nights, or just flexing.",
+    description: '65" 4K UHD — presentations, movie nights, or just flexing.',
     emoji: "📺",
     pricePerDay: 5,
     pricePerWeek: 29,
@@ -759,7 +813,8 @@ export const products: Product[] = [
     id: "marshall-woburn-3",
     name: "Marshall Woburn III Bluetooth",
     category: "gaming",
-    description: "110W dual subwoofers with analog controls — rock your workspace.",
+    description:
+      "110W dual subwoofers with analog controls — rock your workspace.",
     emoji: "🔊",
     pricePerDay: 3,
     pricePerWeek: 16,
@@ -776,7 +831,8 @@ export const products: Product[] = [
     id: "switch-2-controller-pack",
     name: "Switch 2 Controller Pack",
     category: "gaming",
-    description: "2× Joy-Con pairs + charging stand — multiplayer mode activated.",
+    description:
+      "2× Joy-Con pairs + charging stand — multiplayer mode activated.",
     emoji: "🎮",
     pricePerDay: 2,
     pricePerWeek: 12,
@@ -793,7 +849,8 @@ export const products: Product[] = [
     id: "ps5-wireless-controller",
     name: "PS5 Wireless Controller",
     category: "gaming",
-    description: "DualSense with haptic feedback and adaptive triggers — feel every game.",
+    description:
+      "DualSense with haptic feedback and adaptive triggers — feel every game.",
     emoji: "🎮",
     pricePerDay: 1,
     pricePerWeek: 6,
@@ -814,7 +871,8 @@ export const products: Product[] = [
     id: "logitech-4k-webcam",
     name: "Logitech 4K Webcam Brio",
     category: "audio-video",
-    description: "5× HD zoom, 4K/60fps, noise-cancel mic — look sharp on every call.",
+    description:
+      "5× HD zoom, 4K/60fps, noise-cancel mic — look sharp on every call.",
     emoji: "📹",
     pricePerDay: 1,
     pricePerWeek: 6,
@@ -831,7 +889,8 @@ export const products: Product[] = [
     id: "shure-mv7-podcast-kit",
     name: "Podcast Microphone Kit",
     category: "audio-video",
-    description: "Shure MV7 with XLR/USB — broadcast-quality sound, plug and play.",
+    description:
+      "Shure MV7 with XLR/USB — broadcast-quality sound, plug and play.",
     emoji: "🎙",
     pricePerDay: 2,
     pricePerWeek: 12,
@@ -848,7 +907,8 @@ export const products: Product[] = [
     id: "soundbar-dolby-atmos",
     name: "Soundbar Dolby Atmos",
     category: "audio-video",
-    description: "330W 3.1.2ch with wireless sub — cinema-grade sound for your desk.",
+    description:
+      "330W 3.1.2ch with wireless sub — cinema-grade sound for your desk.",
     emoji: "🔊",
     pricePerDay: 2,
     pricePerWeek: 10,
@@ -865,7 +925,7 @@ export const products: Product[] = [
     id: "wanbo-t6-projector",
     name: "Wanbo T6 Projector",
     category: "audio-video",
-    description: "Full HD, 550 ANSI, 120\" max — turn any wall into a screen.",
+    description: 'Full HD, 550 ANSI, 120" max — turn any wall into a screen.',
     emoji: "📽️",
     pricePerDay: 2,
     pricePerWeek: 13,
@@ -882,7 +942,8 @@ export const products: Product[] = [
     id: "xlr-to-3-5mm-cable",
     name: "XLR Female to 3.5mm Cable",
     category: "audio-video",
-    description: "Canare L-2T2S, 2m, gold-plated — Japanese studio-grade connection.",
+    description:
+      "Canare L-2T2S, 2m, gold-plated — Japanese studio-grade connection.",
     emoji: "🎵",
     pricePerDay: 1,
     pricePerWeek: 2,
@@ -920,7 +981,8 @@ export const products: Product[] = [
     id: "spinning-bike",
     name: "Home Spinning Bike",
     category: "fitness",
-    description: "Yesoul S3 with magnetic resistance and Bluetooth — morning cardio, sorted.",
+    description:
+      "Yesoul S3 with magnetic resistance and Bluetooth — morning cardio, sorted.",
     emoji: "🚴",
     pricePerDay: 4,
     pricePerWeek: 22,
@@ -937,7 +999,8 @@ export const products: Product[] = [
     id: "dumbbell-set-50kg",
     name: "Adjustable Dumbbell Weight Set",
     category: "fitness",
-    description: "Up to 50kg with rubber grips — hotel-gym gains, villa edition.",
+    description:
+      "Up to 50kg with rubber grips — hotel-gym gains, villa edition.",
     emoji: "🏋️",
     pricePerDay: 1,
     pricePerWeek: 6,
@@ -971,7 +1034,8 @@ export const products: Product[] = [
     id: "treadmill",
     name: "Treadmill",
     category: "fitness",
-    description: "1–16 km/h, 12 programs, foldable — no excuses to skip leg day.",
+    description:
+      "1–16 km/h, 12 programs, foldable — no excuses to skip leg day.",
     emoji: "🏃",
     pricePerDay: 3,
     pricePerWeek: 20,
@@ -1009,7 +1073,8 @@ export const products: Product[] = [
     id: "dolce-gusto-coffee",
     name: "Dolce Gusto Coffee Machine",
     category: "appliances",
-    description: "15-bar pump, hot & cold beverages — fuel your code with capsule convenience.",
+    description:
+      "15-bar pump, hot & cold beverages — fuel your code with capsule convenience.",
     emoji: "☕",
     pricePerDay: 2,
     pricePerWeek: 8,
@@ -1043,7 +1108,8 @@ export const products: Product[] = [
     id: "smart-tv-43",
     name: '43" Smart TV 4K',
     category: "appliances",
-    description: "4K UHD with HDR10+ and voice control — your villa entertainment hub.",
+    description:
+      "4K UHD with HDR10+ and voice control — your villa entertainment hub.",
     emoji: "📺",
     pricePerDay: 2,
     pricePerWeek: 12,
@@ -1060,7 +1126,8 @@ export const products: Product[] = [
     id: "smart-tv-50",
     name: '50" Smart TV 4K',
     category: "appliances",
-    description: "4K UHD, Dolby Digital+, voice control — bigger screen, better binge.",
+    description:
+      "4K UHD, Dolby Digital+, voice control — bigger screen, better binge.",
     emoji: "📺",
     pricePerDay: 3,
     pricePerWeek: 15,
@@ -1077,7 +1144,7 @@ export const products: Product[] = [
     id: "table-fan",
     name: "Table Fan",
     category: "appliances",
-    description: "20\" oscillating fan — because Bali can get toasty.",
+    description: '20" oscillating fan — because Bali can get toasty.',
     emoji: "🌀",
     pricePerDay: 1,
     pricePerWeek: 4,
@@ -1111,7 +1178,8 @@ export const products: Product[] = [
     id: "3-in-1-blender",
     name: "3-in-1 Blender",
     category: "appliances",
-    description: "Blend, grind, chop — morning smoothies to post-surf recovery shakes.",
+    description:
+      "Blend, grind, chop — morning smoothies to post-surf recovery shakes.",
     emoji: "🥤",
     pricePerDay: 1,
     pricePerWeek: 3,
