@@ -12,6 +12,17 @@ export type Category =
   | "fitness"
   | "appliances";
 
+export type SlotId =
+  | "monitor-left"
+  | "monitor-center"
+  | "monitor-right"
+  | "lamp"
+  | "keyboard"
+  | "plant-desk"
+  | "chair"
+  | "plant-floor"
+  | "side-table";
+
 export interface Product {
   id: string;
   name: string;
@@ -27,6 +38,7 @@ export interface Product {
   width: number; // canvas footprint in grid units
   height: number; // canvas footprint in grid units
   tags: string[];
+  compatibleSlots: SlotId[];
 }
 
 export interface CategoryInfo {
@@ -53,9 +65,113 @@ export const categories: CategoryInfo[] = [
 export const CDN_BASE =
   "https://cdn.prod.website-files.com/62ec28c28759bdba5015b899/";
 
+// ── Slot Compatibility Map ──
+
+const SLOT_MAP: Record<string, SlotId[]> = {
+  // Monitors → any of the three monitor slots
+  "24-full-hd-monitor-a24i": [
+    "monitor-left",
+    "monitor-center",
+    "monitor-right",
+  ],
+  "24-full-hd-monitor-1c": ["monitor-left", "monitor-center", "monitor-right"],
+  "27-full-hd-monitor-mid": ["monitor-left", "monitor-center", "monitor-right"],
+  "27-full-hd-monitor-a27i": [
+    "monitor-left",
+    "monitor-center",
+    "monitor-right",
+  ],
+  "27-4k-multimedia-monitor": [
+    "monitor-left",
+    "monitor-center",
+    "monitor-right",
+  ],
+  "27-4k-grading-monitor": ["monitor-left", "monitor-center", "monitor-right"],
+  "27-5k-apple-studio-display": [
+    "monitor-left",
+    "monitor-center",
+    "monitor-right",
+  ],
+  "27-2k-grading-monitor-benq": [
+    "monitor-left",
+    "monitor-center",
+    "monitor-right",
+  ],
+  "30-gaming-monitor": ["monitor-left", "monitor-center", "monitor-right"],
+  "34-4k-gaming-monitor": ["monitor-left", "monitor-center", "monitor-right"],
+  "34-4k-curved-monitor": ["monitor-left", "monitor-center", "monitor-right"],
+  "32-qhd-ergonomic-monitor-lg": [
+    "monitor-left",
+    "monitor-center",
+    "monitor-right",
+  ],
+
+  // Furniture
+  "ergonomic-office-chair": ["chair"],
+
+  // Computers
+  "apple-mac-studio": ["plant-desk", "side-table"],
+  "apple-mac-mini-m2": ["plant-desk", "side-table"],
+  "apple-mac-mini-m4": ["plant-desk", "side-table"],
+  "windows-laptop-15": ["monitor-center"],
+
+  // Peripherals
+  "logitech-mx-keyboard": ["keyboard"],
+  "apple-magic-keyboard": ["keyboard"],
+  "logitech-m331-mouse": ["keyboard"],
+  "logitech-mx-master-s3": ["keyboard"],
+  "apple-magic-mouse": ["keyboard"],
+  "apple-magic-trackpad": ["keyboard"],
+  "6-in-1-converter-hub": ["plant-desk", "side-table"],
+  "ergonomic-laptop-stand": ["monitor-center"],
+  "adjustable-monitor-stand": [
+    "monitor-left",
+    "monitor-center",
+    "monitor-right",
+  ],
+  "monitor-light-bar": ["lamp"],
+  "wifi-range-extender": ["side-table"],
+  "wifi-6-router": ["side-table"],
+  "smart-power-strip-6": ["side-table"],
+  "portable-tv-stand": ["plant-floor"],
+
+  // Gaming
+  "nintendo-switch-2": ["side-table"],
+  "sony-playstation-5": ["side-table", "plant-floor"],
+  "sony-psvr2": ["side-table"],
+  "smart-tv-55": ["monitor-center"],
+  "smart-tv-65": ["monitor-center"],
+  "marshall-woburn-3": ["side-table", "plant-desk"],
+  "switch-2-controller-pack": ["side-table"],
+  "ps5-wireless-controller": ["side-table"],
+
+  // Audio & Video
+  "logitech-4k-webcam": ["monitor-center", "plant-desk"],
+  "shure-mv7-podcast-kit": ["lamp", "plant-desk"],
+  "soundbar-dolby-atmos": ["plant-desk", "side-table"],
+  "wanbo-t6-projector": ["side-table"],
+
+  // Fitness
+  "walking-pad-r2-pro": ["plant-floor"],
+  "spinning-bike": ["plant-floor"],
+  "dumbbell-set-50kg": ["plant-floor"],
+  "massage-gun": ["side-table"],
+  treadmill: ["plant-floor"],
+
+  // Appliances
+  "starlink-kit": ["side-table"],
+  "dolce-gusto-coffee": ["side-table", "plant-desk"],
+  "nespresso-coffee": ["side-table", "plant-desk"],
+  "smart-tv-43": ["monitor-center"],
+  "smart-tv-50": ["monitor-center"],
+  "table-fan": ["side-table", "plant-desk"],
+  "mini-bar-fridge": ["side-table", "plant-floor"],
+  "3-in-1-blender": ["side-table"],
+};
+
 // ── Full Product Catalog ──
 
-export const products: Product[] = [
+const _rawProducts: Omit<Product, "compatibleSlots">[] = [
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━
   //  MONITORS
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -1193,6 +1309,31 @@ export const products: Product[] = [
     tags: ["blender", "kitchen", "smoothie", "appliance"],
   },
 ];
+
+// ── Hydrate with compatible slots ──
+
+export const products: Product[] = _rawProducts.map((p) => ({
+  ...p,
+  compatibleSlots: SLOT_MAP[p.id] ?? [],
+}));
+
+// ── Helpers: slot queries ──
+
+export const SLOT_IDS: SlotId[] = [
+  "monitor-left",
+  "monitor-center",
+  "monitor-right",
+  "lamp",
+  "keyboard",
+  "plant-desk",
+  "chair",
+  "plant-floor",
+  "side-table",
+];
+
+export function getProductsForSlot(slotId: SlotId): Product[] {
+  return products.filter((p) => p.compatibleSlots.includes(slotId));
+}
 
 // ── Grouped by Category ──
 
