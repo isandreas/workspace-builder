@@ -62,8 +62,8 @@ export const SLOTS: SlotDef[] = [
     alwaysVisible: true,
   },
   {
-    id: "plant-desk",
-    label: "Plant",
+    id: "desk-accessory",
+    label: "Accessory",
     zone: "desk",
     position: { bottom: 6, left: 4 },
     width: 28,
@@ -73,13 +73,13 @@ export const SLOTS: SlotDef[] = [
     id: "chair",
     label: "Chair",
     zone: "floor",
-    position: { bottom: 136, left: "50%", transform: "translateX(-50%)" },
+    position: { bottom: 48, left: "50%", transform: "translateX(-50%)" },
     width: 68,
     height: 120,
   },
   {
-    id: "plant-floor",
-    label: "Plant",
+    id: "side-unit",
+    label: "Side Unit",
     zone: "floor",
     position: { bottom: 138, left: 72 },
     width: 50,
@@ -87,11 +87,11 @@ export const SLOTS: SlotDef[] = [
   },
   {
     id: "side-table",
-    label: "Side Table",
-    zone: "floor",
-    position: { bottom: 138, right: 72 },
-    width: 50,
-    height: 55,
+    label: "Side Box",
+    zone: "desk",
+    position: { bottom: 6, right: 4 },
+    width: 28,
+    height: 28,
   },
 ];
 
@@ -132,8 +132,8 @@ const HOTSPOTS: HotspotDef[] = [
     animDelay: 0.6,
   },
   {
-    slotId: "plant-floor",
-    label: "Add Plant",
+    slotId: "side-unit",
+    label: "Add Side Unit",
     position: { bottom: "28%", left: "5%" },
     animDelay: 1.0,
   },
@@ -263,50 +263,98 @@ function LampVisual() {
   );
 }
 
-function PlantVisual({ size = "sm" }: { size?: "sm" | "lg" }) {
-  const leafH = size === "lg" ? 28 : 18;
-  const leafW = size === "lg" ? 18 : 13;
-  const potH = size === "lg" ? 24 : 17;
-  const potW = size === "lg" ? 30 : 22;
-  const potR = size === "lg" ? 6 : 5;
+function DeskAccessoryVisual() {
+  // Small gadget / accessory box on the desk
   return (
-    <div>
-      <div className="-mb-[3px] flex justify-center">
-        <div
-          className="origin-bottom-right rounded-tl-[50%] rounded-tr-[50%] rounded-bl-[50%]"
-          style={{
-            height: leafH,
-            width: leafW,
-            background: "linear-gradient(135deg, #5A8A6A 0%, #3A6A4A 100%)",
-          }}
-        />
-        <div
-          className="-rotate-[18deg] -scale-x-100 rounded-tl-[50%] rounded-tr-[50%] rounded-br-[50%]"
-          style={{
-            height: leafH,
-            width: leafW,
-            background: "linear-gradient(135deg, #5A8A6A 0%, #3A6A4A 100%)",
-          }}
-        />
-        <div
-          className="rotate-[18deg] rounded-tl-[50%] rounded-tr-[50%] rounded-bl-[50%]"
-          style={{
-            height: leafH,
-            width: leafW,
-            background: "linear-gradient(135deg, #5A8A6A 0%, #3A6A4A 100%)",
-          }}
-        />
-      </div>
+    <div className="flex flex-col items-center">
+      {/* Main body — compact rounded box */}
       <div
-        className="rounded-t-[2px]"
+        className="relative rounded-[4px]"
         style={{
-          height: potH,
-          width: potW,
-          borderRadius: `2px 2px ${potR}px ${potR}px`,
-          background: "linear-gradient(180deg, #D0C8BE 0%, #C0B8AE 100%)",
-          clipPath: "polygon(6% 0%, 94% 0%, 100% 100%, 0% 100%)",
+          width: 24,
+          height: 20,
+          background: "linear-gradient(160deg, #E8E4DC 0%, #D0C8BE 100%)",
+          boxShadow:
+            "0 2px 6px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.6)",
+          border: "1px solid rgba(0,0,0,0.06)",
+        }}
+      >
+        {/* LED indicator */}
+        <div
+          className="absolute right-[4px] top-[4px] h-[3px] w-[3px] rounded-full"
+          style={{
+            background: "#56D364",
+            boxShadow: "0 0 4px rgba(86,211,100,0.4)",
+          }}
+        />
+        {/* Port lines */}
+        <div className="absolute bottom-[4px] left-[4px] flex gap-[2px]">
+          <div className="h-[2px] w-[4px] rounded-sm bg-[#A0A09A]" />
+          <div className="h-[2px] w-[4px] rounded-sm bg-[#A0A09A]" />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function SideUnitVisual() {
+  // Tall standing unit beside the desk (e.g., TV stand, fitness equipment)
+  return (
+    <div className="flex flex-col items-center">
+      {/* Top shelf */}
+      <div
+        className="h-[5px] w-[40px] rounded-t-[3px]"
+        style={{
+          background: "linear-gradient(180deg, #F0EDE8 0%, #E0D8CC 100%)",
+          border: "1px solid rgba(0,0,0,0.05)",
         }}
       />
+      {/* Body */}
+      <div
+        className="relative w-[36px] rounded-b-[2px]"
+        style={{
+          height: 30,
+          background: "linear-gradient(180deg, #E8E4DC 0%, #D8D0C4 100%)",
+          border: "1px solid rgba(0,0,0,0.06)",
+          borderTop: "none",
+        }}
+      >
+        {/* Shelf divider */}
+        <div
+          className="absolute left-[2px] right-[2px] top-[12px] h-px"
+          style={{ background: "rgba(0,0,0,0.08)" }}
+        />
+      </div>
+      {/* Feet */}
+      <div className="flex w-[36px] justify-between px-[2px]">
+        <div className="h-[4px] w-[3px] rounded-b-[2px] bg-[#B8B0A4]" />
+        <div className="h-[4px] w-[3px] rounded-b-[2px] bg-[#B8B0A4]" />
+      </div>
+    </div>
+  );
+}
+
+function SideBoxVisual() {
+  // Small box / cabinet sitting on the desk
+  return (
+    <div className="flex flex-col items-center">
+      <div
+        className="relative rounded-[3px]"
+        style={{
+          width: 24,
+          height: 22,
+          background: "linear-gradient(160deg, #F0EDE8 0%, #E0D8CC 100%)",
+          boxShadow:
+            "0 2px 6px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.7)",
+          border: "1px solid rgba(0,0,0,0.06)",
+        }}
+      >
+        {/* Handle */}
+        <div
+          className="absolute left-1/2 top-1/2 h-[2px] w-[10px] -translate-x-1/2 -translate-y-1/2 rounded-sm"
+          style={{ background: "rgba(0,0,0,0.15)" }}
+        />
+      </div>
     </div>
   );
 }
@@ -397,37 +445,6 @@ function ChairVisual() {
   );
 }
 
-function SideTableVisual() {
-  return (
-    <div className="flex flex-col items-center">
-      {/* Top */}
-      <div
-        className="h-[6px] w-[44px] rounded-t-[3px]"
-        style={{
-          background: "linear-gradient(180deg, #F0EDE8 0%, #E0D8CC 100%)",
-          boxShadow: "0 -1px 4px rgba(0,0,0,0.06)",
-          border: "1px solid rgba(0,0,0,0.05)",
-        }}
-      />
-      {/* Legs */}
-      <div className="flex w-[38px] justify-between">
-        <div
-          className="h-[32px] w-[3px] rounded-b-[2px]"
-          style={{
-            background: "linear-gradient(180deg, #C8C0B4 0%, #B8B0A4 100%)",
-          }}
-        />
-        <div
-          className="h-[32px] w-[3px] rounded-b-[2px]"
-          style={{
-            background: "linear-gradient(180deg, #C8C0B4 0%, #B8B0A4 100%)",
-          }}
-        />
-      </div>
-    </div>
-  );
-}
-
 // ── Monitor variants for the three slots ──
 
 const MONITOR_PRESETS: Record<
@@ -484,16 +501,16 @@ function SlotVisual({ slotId }: { slotId: SlotId }) {
   switch (slotId) {
     case "lamp":
       return <LampVisual />;
-    case "plant-desk":
-      return <PlantVisual size="sm" />;
-    case "plant-floor":
-      return <PlantVisual size="lg" />;
+    case "desk-accessory":
+      return <DeskAccessoryVisual />;
+    case "side-unit":
+      return <SideUnitVisual />;
     case "chair":
       return <ChairVisual />;
     case "keyboard":
       return <KeyboardVisual />;
     case "side-table":
-      return <SideTableVisual />;
+      return <SideBoxVisual />;
     default:
       return null;
   }

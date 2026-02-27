@@ -18,9 +18,9 @@ export type SlotId =
   | "monitor-right"
   | "lamp"
   | "keyboard"
-  | "plant-desk"
+  | "desk-accessory"
   | "chair"
-  | "plant-floor"
+  | "side-unit"
   | "side-table";
 
 export interface Product {
@@ -108,11 +108,16 @@ const SLOT_MAP: Record<string, SlotId[]> = {
 
   // Furniture
   "ergonomic-office-chair": ["chair"],
+  "gaming-chair-pro": ["chair"],
+  "executive-leather-chair": ["chair"],
+  "mini-succulent-pot": ["desk-accessory"],
+  "bamboo-desktop-plant": ["desk-accessory"],
+  "air-purifying-pothos": ["desk-accessory", "side-unit"],
 
   // Computers
-  "apple-mac-studio": ["plant-desk", "side-table"],
-  "apple-mac-mini-m2": ["plant-desk", "side-table"],
-  "apple-mac-mini-m4": ["plant-desk", "side-table"],
+  "apple-mac-studio": ["desk-accessory", "side-table"],
+  "apple-mac-mini-m2": ["desk-accessory", "side-table"],
+  "apple-mac-mini-m4": ["desk-accessory", "side-table"],
   "windows-laptop-15": ["monitor-center"],
 
   // Peripherals
@@ -122,7 +127,7 @@ const SLOT_MAP: Record<string, SlotId[]> = {
   "logitech-mx-master-s3": ["keyboard"],
   "apple-magic-mouse": ["keyboard"],
   "apple-magic-trackpad": ["keyboard"],
-  "6-in-1-converter-hub": ["plant-desk", "side-table"],
+  "6-in-1-converter-hub": ["desk-accessory", "side-table"],
   "ergonomic-laptop-stand": ["monitor-center"],
   "adjustable-monitor-stand": [
     "monitor-left",
@@ -133,39 +138,39 @@ const SLOT_MAP: Record<string, SlotId[]> = {
   "wifi-range-extender": ["side-table"],
   "wifi-6-router": ["side-table"],
   "smart-power-strip-6": ["side-table"],
-  "portable-tv-stand": ["plant-floor"],
+  "portable-tv-stand": ["side-unit"],
 
   // Gaming
   "nintendo-switch-2": ["side-table"],
-  "sony-playstation-5": ["side-table", "plant-floor"],
+  "sony-playstation-5": ["side-table", "side-unit"],
   "sony-psvr2": ["side-table"],
   "smart-tv-55": ["monitor-center"],
   "smart-tv-65": ["monitor-center"],
-  "marshall-woburn-3": ["side-table", "plant-desk"],
+  "marshall-woburn-3": ["side-table", "desk-accessory"],
   "switch-2-controller-pack": ["side-table"],
   "ps5-wireless-controller": ["side-table"],
 
   // Audio & Video
-  "logitech-4k-webcam": ["monitor-center", "plant-desk"],
-  "shure-mv7-podcast-kit": ["lamp", "plant-desk"],
-  "soundbar-dolby-atmos": ["plant-desk", "side-table"],
+  "logitech-4k-webcam": ["monitor-center", "desk-accessory"],
+  "shure-mv7-podcast-kit": ["lamp", "desk-accessory"],
+  "soundbar-dolby-atmos": ["desk-accessory", "side-table"],
   "wanbo-t6-projector": ["side-table"],
 
   // Fitness
-  "walking-pad-r2-pro": ["plant-floor"],
-  "spinning-bike": ["plant-floor"],
-  "dumbbell-set-50kg": ["plant-floor"],
+  "walking-pad-r2-pro": ["side-unit"],
+  "spinning-bike": ["side-unit"],
+  "dumbbell-set-50kg": ["side-unit"],
   "massage-gun": ["side-table"],
-  treadmill: ["plant-floor"],
+  treadmill: ["side-unit"],
 
   // Appliances
   "starlink-kit": ["side-table"],
-  "dolce-gusto-coffee": ["side-table", "plant-desk"],
-  "nespresso-coffee": ["side-table", "plant-desk"],
+  "dolce-gusto-coffee": ["side-table", "desk-accessory"],
+  "nespresso-coffee": ["side-table", "desk-accessory"],
   "smart-tv-43": ["monitor-center"],
   "smart-tv-50": ["monitor-center"],
-  "table-fan": ["side-table", "plant-desk"],
-  "mini-bar-fridge": ["side-table", "plant-floor"],
+  "table-fan": ["side-table", "desk-accessory"],
+  "mini-bar-fridge": ["side-table", "side-unit"],
   "3-in-1-blender": ["side-table"],
 };
 
@@ -427,6 +432,91 @@ const _rawProducts: Omit<Product, "compatibleSlots">[] = [
     width: 2,
     height: 2,
     tags: ["chair", "ergonomic", "mesh", "adjustable", "lumbar"],
+  },
+  {
+    id: "gaming-chair-pro",
+    name: "Gaming Chair Pro",
+    category: "furniture",
+    description:
+      "Reclining backrest with lumbar pillow & retractable footrest — game or nap, your call.",
+    emoji: "🎮",
+    pricePerDay: 2,
+    pricePerWeek: 8,
+    pricePerMonth: 25,
+    imageUrl: "",
+    imagePlaceholder: "gaming-chair-pro",
+    slug: "/products/gaming-chair-pro",
+    width: 2,
+    height: 2,
+    tags: ["chair", "gaming", "reclining", "footrest", "lumbar"],
+  },
+  {
+    id: "executive-leather-chair",
+    name: "Executive Leather Chair",
+    category: "furniture",
+    description:
+      "Premium PU leather with high back support — corner-office vibes on island time.",
+    emoji: "💺",
+    pricePerDay: 2,
+    pricePerWeek: 10,
+    pricePerMonth: 32,
+    imageUrl: "",
+    imagePlaceholder: "executive-leather-chair",
+    slug: "/products/executive-leather-chair",
+    width: 2,
+    height: 2,
+    tags: ["chair", "leather", "executive", "high-back", "premium"],
+  },
+  {
+    id: "mini-succulent-pot",
+    name: "Mini Succulent Pot",
+    category: "furniture",
+    description:
+      "Ceramic pot with low-maintenance succulent — adds life to your desk, zero effort.",
+    emoji: "🪴",
+    pricePerDay: 0.5,
+    pricePerWeek: 2,
+    pricePerMonth: 5,
+    imageUrl: "",
+    imagePlaceholder: "mini-succulent-pot",
+    slug: "/products/mini-succulent-pot",
+    width: 1,
+    height: 1,
+    tags: ["plant", "succulent", "desk", "ceramic", "accessory"],
+  },
+  {
+    id: "bamboo-desktop-plant",
+    name: "Bamboo Desktop Plant",
+    category: "furniture",
+    description:
+      "Lucky bamboo in a glass vase — Feng Shui energy for your Bali workspace.",
+    emoji: "🎋",
+    pricePerDay: 0.5,
+    pricePerWeek: 2,
+    pricePerMonth: 6,
+    imageUrl: "",
+    imagePlaceholder: "bamboo-desktop-plant",
+    slug: "/products/bamboo-desktop-plant",
+    width: 1,
+    height: 1,
+    tags: ["plant", "bamboo", "desk", "feng-shui", "accessory"],
+  },
+  {
+    id: "air-purifying-pothos",
+    name: "Air-Purifying Pothos",
+    category: "furniture",
+    description:
+      "Trailing pothos in a hanging planter — cleans the air while looking gorgeous.",
+    emoji: "🌿",
+    pricePerDay: 0.5,
+    pricePerWeek: 3,
+    pricePerMonth: 8,
+    imageUrl: "",
+    imagePlaceholder: "air-purifying-pothos",
+    slug: "/products/air-purifying-pothos",
+    width: 1,
+    height: 2,
+    tags: ["plant", "pothos", "air-purifying", "hanging", "accessory"],
   },
   {
     id: "electrical-adjustable-desk",
@@ -1325,9 +1415,9 @@ export const SLOT_IDS: SlotId[] = [
   "monitor-right",
   "lamp",
   "keyboard",
-  "plant-desk",
+  "desk-accessory",
   "chair",
-  "plant-floor",
+  "side-unit",
   "side-table",
 ];
 
